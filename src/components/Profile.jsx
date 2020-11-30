@@ -11,11 +11,11 @@ import ProfileSection from "./ProfileSection";
 import Questions from "./Questions";
 import Skills from "./Skills";
 
-export default class Home extends Component {
+export default class Profile extends Component {
   render() {
     return (
       <div>
-        Home
+        Profile
         <ProfileSection />
         <About />
         <Featured />
