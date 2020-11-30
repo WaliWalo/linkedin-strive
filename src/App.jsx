@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
+import Profile from "./components/Profile";
 import NavBar from "./components/NavBar";
 import ProfileNavBar from "./components/ProfileNavBar";
 
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <NavBar />
       <ProfileNavBar />
-      <Home />
+      <Profile />
       <Footer />
     </div>
   );
