@@ -1,14 +1,11 @@
 /** @format */
 
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import {
   Navbar,
-  ButtonGroup,
   Image,
   Nav,
-  Dropdown,
-  DropdownButton,
   Button,
   Container,
   Form,
@@ -28,28 +25,29 @@ import {
 import { fetchMyProfile } from "../api/linkedinApi";
 
 const NavBar = (props) => {
-  const { location } = props;
+  // const { location } = props;
   const homeIcon = <FontAwesomeIcon icon={faHome} />;
   const friendsIcon = <FontAwesomeIcon icon={faUserFriends} />;
   const briefcase = <FontAwesomeIcon icon={faBriefcase} />;
   const messages = <FontAwesomeIcon icon={faCommentDots} />;
   const bell = <FontAwesomeIcon icon={faBell} />;
   const th = <FontAwesomeIcon icon={faTh} />;
-  const learn = <FontAwesomeIcon icon={faHome} />;
+  // const learn = <FontAwesomeIcon icon={faHome} />;
 
   const [profile, setProfile] = useState({});
 
-  useEffect(async () => {
+  useEffect(() => {
     try {
-      let _profile = await fetchMyProfile();
-      if (profile._id != _profile._id) {
-        setProfile(profile);
+      async function fetchData() {
+        let _profile = await fetchMyProfile();
+        if (profile._id !== _profile._id) {
+          setProfile(_profile);
+        }
       }
+      fetchData();
     } catch (error) {
       console.log(error);
     }
-
-    console.log(profile);
   }, [profile]);
 
   return (

@@ -9,7 +9,7 @@ export async function fetchListOfProfiles() {
         },
       }
     );
-    const data = response.json();
+    const data = await response.json();
     if (response.ok) {
       return data;
     } else {
@@ -55,7 +55,7 @@ export async function fetchMyProfile() {
         },
       }
     );
-    const data = response.json();
+    const data = await response.json();
     if (response.ok) {
       return data;
     } else {
@@ -77,7 +77,7 @@ export async function fetchProfileById(id) {
         },
       }
     );
-    const data = response.json();
+    const data = await response.json();
     if (response.ok) {
       return data;
     } else {

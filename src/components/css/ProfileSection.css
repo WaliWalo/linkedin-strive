@@ -1,6 +1,8 @@
 #profileCard {
   border: 1px solid grey;
   box-shadow: 5px 2px #888888;
+  border-radius: "30px";
+  margintop: "3vh";
 }
 
 #openToWork {
