@@ -39,7 +39,14 @@ export default class ProfileSection extends Component {
     return (
       <>
         {this.state.profile && (
-          <Container id="profileCard">
+          <Container
+            style={{
+              border: "solid 1px",
+              marginTop: "3vh",
+              borderRadius: "12px",
+            }}
+            id="profileCard"
+          >
             <Row className="position-relative">
               <Jumbotron>
                 <Image src="http://placehold.it/500x200" />
