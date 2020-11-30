@@ -8,7 +8,7 @@ export default class Featured extends Component {
           <h2 className="featured-text">Featured</h2>
           <div className="featured-description">
             <div className="featured-description-text">
-              <strong>Showcase your work</strong>
+              <strong>Showcase your work </strong>
               <span>
                 by featuring your best posts, documents, media, and websites.
               </span>
