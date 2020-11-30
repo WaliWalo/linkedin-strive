@@ -40,7 +40,11 @@ export default class ProfileSection extends Component {
       <>
         {this.state.profile && (
           <Container
-            style={{ border: "solid 1px", marginTop: "3vh" }}
+            style={{
+              border: "solid 1px",
+              marginTop: "3vh",
+              borderRadius: "12px",
+            }}
             id="profileCard"
           >
             <Row className="position-relative">
