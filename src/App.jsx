@@ -16,7 +16,7 @@ function App() {
         <NavBar />
         <ProfileNavBar />
         <Route path="/Profile" exact component={ProfileSection} />
-        <Home />
+        <Profile />
         <Footer />
       </Router>
     </div>
