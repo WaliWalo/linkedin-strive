@@ -15,6 +15,13 @@ import {
   NavDropdown,
   FormControl,
 } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  briefcase,
+  home,
+  userFriends,
+  commentDots,
+} from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = (props) => {
   const { location } = props;

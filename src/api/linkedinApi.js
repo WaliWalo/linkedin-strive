@@ -6,7 +6,7 @@ export async function fetchListOfProfiles() {
         method: "GET",
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmM0YjU4MmI3MDhjMjAwMTc1ZGU4OTMiLCJpYXQiOjE2MDY3MjcwNDQsImV4cCI6MTYwNzkzNjY0NH0.bzTQYFLAETWwbOrdML0WLEHa_gqWE8AK-ghAIEmw5bM",
+            "Bearer" +process.env.REACT_APP_ANYTHING_DOGGO,
         },
       }
     );
@@ -31,7 +31,7 @@ export async function submitProfile(profile) {
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmM0YjU4MmI3MDhjMjAwMTc1ZGU4OTMiLCJpYXQiOjE2MDY3MjcwNDQsImV4cCI6MTYwNzkzNjY0NH0.bzTQYFLAETWwbOrdML0WLEHa_gqWE8AK-ghAIEmw5bM",
+            "Bearer"+process.env.REACT_APP_ANYTHING_DOGGO,
         },
       }
     );
@@ -54,7 +54,7 @@ export async function fetchMyProfile() {
         method: "GET",
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmM0YjU4MmI3MDhjMjAwMTc1ZGU4OTMiLCJpYXQiOjE2MDY3MjcwNDQsImV4cCI6MTYwNzkzNjY0NH0.bzTQYFLAETWwbOrdML0WLEHa_gqWE8AK-ghAIEmw5bM",
+            "Bearer" +process.env.REACT_APP_ANYTHING_DOGGO,
         },
       }
     );
@@ -77,7 +77,7 @@ export async function fetchProfileById(id) {
         method: "GET",
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmM0YjU4MmI3MDhjMjAwMTc1ZGU4OTMiLCJpYXQiOjE2MDY3MjcwNDQsImV4cCI6MTYwNzkzNjY0NH0.bzTQYFLAETWwbOrdML0WLEHa_gqWE8AK-ghAIEmw5bM",
+            "Bearer "+process.env.REACT_APP_ANYTHING_DOGGO,
         },
       }
     );
@@ -102,7 +102,7 @@ export async function updateProfile() {
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmM0YjU4MmI3MDhjMjAwMTc1ZGU4OTMiLCJpYXQiOjE2MDY3MjcwNDQsImV4cCI6MTYwNzkzNjY0NH0.bzTQYFLAETWwbOrdML0WLEHa_gqWE8AK-ghAIEmw5bM",
+            "Bearer "+process.env.REACT_APP_ANYTHING_DOGGO,
         },
       }
     );
