@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import {
   Col,
@@ -42,11 +44,6 @@ export default class ProfileSection extends Component {
               <Jumbotron>
                 <Image src="http://placehold.it/500x200" />
               </Jumbotron>
-              <Image
-                src={this.state.profile.image}
-                className="position-absolute"
-                style={{ zIndex: "1000", top: "70%", left: "15%" }}
-              />
             </Row>
             <Row>
               <Col>
@@ -237,12 +234,29 @@ export default class ProfileSection extends Component {
                 <Row>
                   <Col>
                     <Row>
-                      <h3>
+                      <Image
+                        src={this.state.profile.image}
+                        className="position-absolute"
+                        style={{
+                          zIndex: "1000",
+
+                          width: "120px",
+                          height: "120px",
+                          borderRadius: "100px",
+                          left: "3%",
+                          top: "-150%",
+                        }}
+                      />
+                      <h3 style={{ marginLeft: "1vh " }}>
                         {this.state.profile.name} {this.state.profile.surname}
                       </h3>
                     </Row>
-                    <Row>{this.state.profile.title}</Row>
-                    <Row>{this.state.profile.area}</Row>
+                    <Row style={{ marginLeft: ".1vh " }}>
+                      {this.state.profile.title}
+                    </Row>
+                    <Row style={{ marginLeft: ".1vh " }}>
+                      {this.state.profile.area}
+                    </Row>
                   </Col>
                   <Col></Col>
                 </Row>
