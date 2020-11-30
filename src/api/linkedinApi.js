@@ -6,7 +6,7 @@ export async function fetchListOfProfiles() {
         method: "GET",
         headers: {
           Authorization:
-            "Bearer" +process.env.REACT_APP_ANYTHING_DOGGO,
+            "Bearer" +process.env.REACT_APP_DOGGO,
         },
       }
     );
@@ -31,7 +31,7 @@ export async function submitProfile(profile) {
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer"+process.env.REACT_APP_ANYTHING_DOGGO,
+            "Bearer"+process.env.REACT_APP_DOGGO,
         },
       }
     );
@@ -54,7 +54,7 @@ export async function fetchMyProfile() {
         method: "GET",
         headers: {
           Authorization:
-            "Bearer" +process.env.REACT_APP_ANYTHING_DOGGO,
+            "Bearer" +process.env.REACT_APP_DOGGO,
         },
       }
     );
@@ -77,7 +77,7 @@ export async function fetchProfileById(id) {
         method: "GET",
         headers: {
           Authorization:
-            "Bearer "+process.env.REACT_APP_ANYTHING_DOGGO,
+            "Bearer "+process.env.REACT_APP_DOGGO,
         },
       }
     );
@@ -102,7 +102,7 @@ export async function updateProfile() {
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer "+process.env.REACT_APP_ANYTHING_DOGGO,
+            "Bearer "+process.env.REACT_APP_DOGGO,
         },
       }
     );

@@ -17,45 +17,90 @@ import {
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  briefcase,
-  home,
-  userFriends,
-  commentDots,
+  faBriefcase,
+  faHome,
+  faUserFriends,
+  faCommentDots,
+  faBell,
+  faTh,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = (props) => {
   const { location } = props;
+  const homeIcon = <FontAwesomeIcon icon={faHome} />;
+  const friendsIcon = <FontAwesomeIcon icon={faUserFriends} />;
+  const briefcase = <FontAwesomeIcon icon={faBriefcase} />;
+  const messages = <FontAwesomeIcon icon={faCommentDots} />;
+  const bell = <FontAwesomeIcon icon={faBell} />;
+  const th = <FontAwesomeIcon icon={faTh} />;
+  const learn = <FontAwesomeIcon icon={faHome} />;
+
   return (
     <>
       <Navbar
         fixed="top"
         collapseOnSelect
         expand="lg"
-        bg="light"
         variant="light"
+        style={{ height: "6vh", backgroundColor: "#ffff" }}
       >
         <Container>
           <Navbar.Brand href="#home">
             <img
-              src="/logo.svg"
+              src="https://image.flaticon.com/icons/png/512/174/174857.png"
               width="30"
               height="30"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
           </Navbar.Brand>
+
           <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-primary">Search</Button>
+            <FontAwesomeIcon icon={faSearch} />
+            <FormControl
+              type="text"
+              placeholder="&#xF002; search"
+              className="mr-sm-2"
+            />
           </Form>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <Nav className="mr-auto"></Nav>
+            <Nav style={{ marginTop: "2vh" }}>
+              <Nav.Link href="#features">
+                {homeIcon}
+                <br></br>Start
+              </Nav.Link>
+              <Nav.Link href="#pricing">
+                {friendsIcon}
+                <br></br>Network
+              </Nav.Link>
+              <Nav.Link href="#deets">
+                {briefcase}
+                <br></br>Jobs
+              </Nav.Link>
+              <Nav.Link eventKey={2} href="#memes">
+                {messages}
+                <br></br>Messages
+              </Nav.Link>
+              <Nav.Link eventKey={3} href="#memes">
+                {bell}
+                <br></br>Notifications
+              </Nav.Link>
+
+              <NavDropdown
+                title={
+                  <div>
+                    {friendsIcon}
+                    <br></br>
+                    You
+                  </div>
+                }
+                id="collasible-nav-dropdown"
+              >
+                <NavDropdown.Item href="#action/3.1">You</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
                   Another action
                 </NavDropdown.Item>
@@ -67,11 +112,40 @@ const NavBar = (props) => {
                   Separated link
                 </NavDropdown.Item>
               </NavDropdown>
-            </Nav>
-            <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
+              <div
+                style={{
+                  borderLeft: "1px solid grey",
+                  height: "6vh",
+                  marginRight: "2vh",
+                  marginLeft: "2vh",
+                }}
+              ></div>
+
+              <NavDropdown
+                title={
+                  <div>
+                    {th}
+                    <br></br>
+                    More
+                  </div>
+                }
+                id="collasible-nav-dropdown"
+              >
+                <NavDropdown.Item href="#action/3.1">more</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">
+                  Another action
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">
+                  Something
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">
+                  Separated link
+                </NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link eventKey={4} href="#">
+                <FontAwesomeIcon icon={faTh} />
+                <br></br>Learning
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
