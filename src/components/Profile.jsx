@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { Component } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import About from "./About";
 import Activity from "./Activity";
 import Dashboard from "./Dashboard";
@@ -17,62 +18,25 @@ export default class Profile extends Component {
   render() {
     return (
       <div>
-        Profile
-        <ProfileSection />
-        <About />
-        <Featured />
-        <Dashboard />
-        <Activity />
-        <Experience />
-        <Skills />
-        <Interests />
-        <PeopleViewed />
-        <PeopleKnow />
-        <Questions />
-        <ProfileSection />
-        <About />
-        <Featured />
-        <Dashboard />
-        <Activity />
-        <Experience />
-        <Skills />
-        <Interests />
-        <PeopleViewed />
-        <PeopleKnow />
-        <Questions />
-        <ProfileSection />
-        <About />
-        <Featured />
-        <Dashboard />
-        <Activity />
-        <Experience />
-        <Skills />
-        <Interests />
-        <PeopleViewed />
-        <PeopleKnow />
-        <Questions />
-        <ProfileSection />
-        <About />
-        <Featured />
-        <Dashboard />
-        <Activity />
-        <Experience />
-        <Skills />
-        <Interests />
-        <PeopleViewed />
-        <PeopleKnow />
-        <Questions />
-        <ProfileSection />
-        <About />
-        <Featured />
-        <Dashboard />
-        <Activity />
-        <Experience />
-        <Skills />
-        <Interests />
-        <PeopleViewed />
-        <PeopleKnow />
-        <Questions />
+        <Container>
+          <Row>
+            <Col xs="9">
+              <ProfileSection />
+              <About />
+              <Featured />
+              <Dashboard />
+              <Activity />
+              <Experience />
+              <Skills />
+              <Interests />
+            </Col>
+            <Col xs="3">
+              <PeopleViewed />
+              <PeopleKnow />
+              <Questions />
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }
