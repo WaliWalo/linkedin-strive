@@ -11,11 +11,13 @@ import ProfileSection from "./ProfileSection";
 import Questions from "./Questions";
 import Skills from "./Skills";
 
+
 export default class Profile extends Component {
   render() {
     return (
-      <div>
-        Profile
+      
+        <div>
+          Profile
         <ProfileSection />
         <About />
         <Featured />
@@ -27,7 +29,8 @@ export default class Profile extends Component {
         <PeopleViewed />
         <PeopleKnow />
         <Questions />
-      </div>
+        </div>
+        
     );
   }
 }
