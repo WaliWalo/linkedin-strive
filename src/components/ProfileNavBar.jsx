@@ -30,7 +30,7 @@ export default class ProfileNavBar extends Component {
           <Navbar
             fixed="top"
             style={{
-              zIndex: "0",
+              zIndex: "100",
               backgroundColor: "#fff",
               boxShadow: " 0 0 0 1px rgba(0,0,0,.15),0 2px 3px rgba(0,0,0,.2)",
             }}
