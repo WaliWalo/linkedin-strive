@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import About from "./About";
 import Activity from "./Activity";
@@ -16,6 +18,50 @@ export default class Home extends Component {
     return (
       <div>
         Home
+        <ProfileSection />
+        <About />
+        <Featured />
+        <Dashboard />
+        <Activity />
+        <Experience />
+        <Skills />
+        <Interests />
+        <PeopleViewed />
+        <PeopleKnow />
+        <Questions />
+        <ProfileSection />
+        <About />
+        <Featured />
+        <Dashboard />
+        <Activity />
+        <Experience />
+        <Skills />
+        <Interests />
+        <PeopleViewed />
+        <PeopleKnow />
+        <Questions />
+        <ProfileSection />
+        <About />
+        <Featured />
+        <Dashboard />
+        <Activity />
+        <Experience />
+        <Skills />
+        <Interests />
+        <PeopleViewed />
+        <PeopleKnow />
+        <Questions />
+        <ProfileSection />
+        <About />
+        <Featured />
+        <Dashboard />
+        <Activity />
+        <Experience />
+        <Skills />
+        <Interests />
+        <PeopleViewed />
+        <PeopleKnow />
+        <Questions />
         <ProfileSection />
         <About />
         <Featured />
