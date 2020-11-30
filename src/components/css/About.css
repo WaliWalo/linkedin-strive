@@ -1,0 +1,9 @@
+#aboutCard {
+  border: 1px solid grey;
+  box-shadow: 5px 2px #888888;
+}
+
+#aboutTitle {
+  display: flex;
+  justify-content: space-between;
+}
