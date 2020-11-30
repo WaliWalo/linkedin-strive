@@ -47,7 +47,7 @@ export async function submitProfile(profile) {
 }
 
 export async function fetchMyProfile() {
-  try {
+ // try {
     let response = await fetch(
       `https://striveschool-api.herokuapp.com/api/profile/me`,
       {
@@ -61,12 +61,13 @@ export async function fetchMyProfile() {
     const data = response.json();
     if (response.ok) {
       return data;
-    } else {
-      return "Something went wrong";
-    }
-  } catch (error) {
-    console.log(error);
-  }
+    } else throw new Error("Error in response")
+    //{
+     // return "Something went wrong";
+   // }
+ // } catch (error) {
+ //   console.log(error);
+ // }
 }
 
 export async function fetchProfileById(id) {

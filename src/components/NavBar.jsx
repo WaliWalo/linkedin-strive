@@ -40,9 +40,16 @@ const NavBar = (props) => {
   const [profile, setProfile] = useState({});
 
   useEffect(async () => {
-    let profile = await fetchMyProfile();
+    try {
+      let _profile = await fetchMyProfile();
+      if (profile._id != _profile._id) {
+        setProfile(profile);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
     console.log(profile);
-    setProfile(profile);
   }, [profile]);
 
   return (
@@ -52,7 +59,7 @@ const NavBar = (props) => {
           collapseOnSelect
           expand="lg"
           variant="light"
-          style={{ height: "6vh", backgroundColor: "#ffff", zIndex: "1000" }}
+          style={{ height: "6vh", backgroundColor: "#fff", zIndex: "1000" }}
         >
           <Container>
             <Navbar.Brand href="#home">
@@ -65,11 +72,19 @@ const NavBar = (props) => {
               />
             </Navbar.Brand>
 
-            <Form inline>
-              <FontAwesomeIcon icon={faSearch} />
+            <Form className="d-inline-block position-relative">
+              <FontAwesomeIcon
+                icon={faSearch}
+                className="position-absolute"
+                style={{
+                  left: "5px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                }}
+              />
               <FormControl
-                type="text"
-                placeholder="&#xF002; search"
+                type="search"
+                placeholder="  search"
                 className="mr-sm-2"
               />
             </Form>
@@ -116,60 +131,100 @@ const NavBar = (props) => {
                         }}
                       />
                       <br></br>
-                      You
+                      Me
                     </div>
                   }
                   id="collasible-nav-dropdown"
                 >
-                  <NavDropdown.Item href="#action/3.1">
+                  <NavDropdown.Item
+                    href="#action/3.1"
+                    style={{ backgroundColor: "transparent" }}
+                  >
                     {" "}
-                    <div>
-                      <Image
-                        src={profile.image}
-                        style={{
-                          width: "40px",
-                          height: "40px",
-                          boxSizing: "border-box",
-                          backgroundClip: "content-box",
-
-                          borderRadius: "100px",
-                          marginRight: "4px",
-                        }}
-                      />
-                      {profile.name} &nbsp; {profile.surname}
-                      <br></br>
-                      <div style={{ marginLeft: "4.3vh" }}>{profile.title}</div>
-                    </div>
-                    <Button
-                      variant="outline-dark"
+                    <Link
+                      to="/Profile"
                       style={{
-                        fontWeight: "600",
-                        textAlign: "center",
-                        height: "2.5vh",
-                        width: "25vh",
-                        borderRadius: "100px",
+                        textDecoration: "none",
+                        color: "black",
                       }}
                     >
-                      Show Profile
-                    </Button>{" "}
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">
-                    Something
+                      <div>
+                        <Image
+                          src={profile.image}
+                          style={{
+                            width: "40px",
+                            height: "40px",
+                            boxSizing: "border-box",
+                            backgroundClip: "content-box",
+
+                            borderRadius: "100px",
+                            marginRight: "4px",
+                          }}
+                        />
+                        {profile.name} &nbsp; {profile.surname}
+                        <br></br>
+                        <div
+                          style={{
+                            marginLeft: "4.3vh",
+                            textDecoration: "none",
+                          }}
+                        >
+                          {profile.title}
+                        </div>
+                      </div>
+                      <Button
+                        variant="outline-primary"
+                        style={{
+                          fontWeight: "600",
+                          textAlign: "center",
+                          height: "2vh",
+                          width: "25vh",
+                          borderRadius: "100px",
+                          fontSize: "12px",
+                          padding: "0px",
+                        }}
+                      >
+                        Show Profile
+                      </Button>
+                    </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
+                  <h6 style={{ fontWeight: "600", marginLeft: "2vh" }}>
+                    Account
+                  </h6>
+                  <NavDropdown.Item href="#action/3.2">
+                    Premium
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">
+                    Settings & Privacy
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">Help</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">
+                    Language
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <h6 style={{ fontWeight: "600", marginLeft: "2vh" }}>
+                    Manage
+                  </h6>
                   <NavDropdown.Item href="#action/3.4">
-                    Separated link
+                    Posts & Activity
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">
+                    Job Posting Account
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action/3.3">
+                    Log Out
                   </NavDropdown.Item>
                 </NavDropdown>
                 <div
                   style={{
                     borderLeft: "1px solid rgba(0,0,0,.2)",
-                    height: "7.5vh",
+                    height: "60px",
                     marginRight: "2vh",
                     marginLeft: "2vh",
+                    marginTop: "0px",
+                    padding: "0px",
                   }}
                 ></div>
 
@@ -178,7 +233,7 @@ const NavBar = (props) => {
                     <div>
                       {th}
                       <br></br>
-                      More
+                      Work
                     </div>
                   }
                   id="collasible-nav-dropdown"

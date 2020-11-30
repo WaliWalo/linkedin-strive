@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import ProfileNavBar from "./components/ProfileNavBar";
+import ProfileSection from "./components/ProfileSection";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Router>
         <NavBar />
         <ProfileNavBar />
+        <Route path="/Profile" exact component={ProfileSection} />
         <Home />
         <Footer />
       </Router>
