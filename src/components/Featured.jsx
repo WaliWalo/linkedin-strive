@@ -7,7 +7,7 @@ export default class Featured extends Component {
     return (
       <Container>
         <Row>
-          <Col md={10} className="featured">
+          <Col className="featured">
             <h2 className="featured-text">Featured</h2>
             <div className="featured-description">
               <div className="featured-description-text">
