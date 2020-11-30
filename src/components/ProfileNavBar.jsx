@@ -7,7 +7,6 @@ import {
   Navbar,
   Button,
   Dropdown,
-  DropdownButton,
   ButtonGroup,
 } from "react-bootstrap";
 import { fetchMyProfile } from "../api/linkedinApi";
