@@ -6,7 +6,7 @@ export async function fetchListOfProfiles() {
         method: "GET",
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmM0YjU4MmI3MDhjMjAwMTc1ZGU4OTMiLCJpYXQiOjE2MDY3MjcwNDQsImV4cCI6MTYwNzkzNjY0NH0.bzTQYFLAETWwbOrdML0WLEHa_gqWE8AK-ghAIEmw5bM",
+            "Bearer " +process.env.REACT_APP_DOGGO,
         },
       }
     );
@@ -31,7 +31,7 @@ export async function submitProfile(profile) {
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmM0YjU4MmI3MDhjMjAwMTc1ZGU4OTMiLCJpYXQiOjE2MDY3MjcwNDQsImV4cCI6MTYwNzkzNjY0NH0.bzTQYFLAETWwbOrdML0WLEHa_gqWE8AK-ghAIEmw5bM",
+            "Bearer "+process.env.REACT_APP_DOGGO,
         },
       }
     );
@@ -47,26 +47,27 @@ export async function submitProfile(profile) {
 }
 
 export async function fetchMyProfile() {
-  try {
+ // try {
     let response = await fetch(
       `https://striveschool-api.herokuapp.com/api/profile/me`,
       {
         method: "GET",
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmM0YjU4MmI3MDhjMjAwMTc1ZGU4OTMiLCJpYXQiOjE2MDY3MjcwNDQsImV4cCI6MTYwNzkzNjY0NH0.bzTQYFLAETWwbOrdML0WLEHa_gqWE8AK-ghAIEmw5bM",
+            "Bearer " +process.env.REACT_APP_DOGGO,
         },
       }
     );
     const data = response.json();
     if (response.ok) {
       return data;
-    } else {
-      return "Something went wrong";
-    }
-  } catch (error) {
-    console.log(error);
-  }
+    } else throw new Error("Error in response")
+    //{
+     // return "Something went wrong";
+   // }
+ // } catch (error) {
+ //   console.log(error);
+ // }
 }
 
 export async function fetchProfileById(id) {
@@ -77,7 +78,7 @@ export async function fetchProfileById(id) {
         method: "GET",
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmM0YjU4MmI3MDhjMjAwMTc1ZGU4OTMiLCJpYXQiOjE2MDY3MjcwNDQsImV4cCI6MTYwNzkzNjY0NH0.bzTQYFLAETWwbOrdML0WLEHa_gqWE8AK-ghAIEmw5bM",
+            "Bearer "+process.env.REACT_APP_DOGGO,
         },
       }
     );
@@ -102,7 +103,7 @@ export async function updateProfile() {
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmM0YjU4MmI3MDhjMjAwMTc1ZGU4OTMiLCJpYXQiOjE2MDY3MjcwNDQsImV4cCI6MTYwNzkzNjY0NH0.bzTQYFLAETWwbOrdML0WLEHa_gqWE8AK-ghAIEmw5bM",
+            "Bearer "+process.env.REACT_APP_DOGGO,
         },
       }
     );
