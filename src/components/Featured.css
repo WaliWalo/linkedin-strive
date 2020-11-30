@@ -1,0 +1,31 @@
+.featured {
+  border: 1px solid #afa6a6e6;
+  border-radius: 10px;
+  padding: 24px;
+  margin: 16px 0px 0px;
+  background-color: white;
+  box-shadow: #afa6a6e6;
+}
+.featured-text {
+  text-align: left;
+  color: #000000e6;
+  font-size: 20px;
+}
+.featured-description {
+  display: flex;
+  margin: 16px 0px 0px;
+  border: 2px dashed #afa6a6e6;
+}
+.featured-description-text {
+  padding: 12px;
+  margin-right: 70px;
+}
+
+.featured-description-close {
+  width: 32px;
+  height: 32px;
+}
+p {
+  text-align: left;
+  margin: 0px;
+}
