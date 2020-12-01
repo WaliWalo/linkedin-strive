@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component } from "react";
-import { Button, Col, Form, Modal, Row } from "react-bootstrap";
+import { Button, Form, Modal, Row } from "react-bootstrap";
 import { createExperience } from "../api/linkedinApi";
 import "./css/ExpModal.css";
 
