@@ -28,7 +28,7 @@ export default class Profile extends Component {
               <Featured />
               <Dashboard />
               <Activity />
-              <Experience />
+              <Experience profile={this.props.profile} />
               <Skills />
               <Interests />
               <div>
@@ -159,7 +159,7 @@ export default class Profile extends Component {
                 debitis non pariatur. Vero placeat dolorum expedita?
               </div>
             </Col>
-            <Col xs="3">
+            <Col xs={3}>
               <PeopleViewed />
               <PeopleKnow />
               <Questions />

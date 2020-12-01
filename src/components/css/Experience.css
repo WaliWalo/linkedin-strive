@@ -1,0 +1,10 @@
+svg.fa-plus-square {
+  font-size: 30px;
+  margin-top: 2px;
+  color: blue;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+}
