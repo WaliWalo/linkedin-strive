@@ -24,6 +24,10 @@ export default class Experience extends Component {
 
   handleRemoveExp = async (userId, expId) => {
     let submitMsg = await deleteExperience(userId, expId);
+    const experiences = this.state.experiences.filter(
+      (experience) => experience._id !== expId
+    );
+    this.setState({ experiences });
     alert(submitMsg);
   };
 
@@ -32,12 +36,20 @@ export default class Experience extends Component {
   componentDidUpdate = async (prevProp, prevState) => {
     if (this.props.profile !== prevProp.profile) {
       let experiences = await fetchUserExperiences(this.props.profile._id);
-      this.setState({ experiences: experiences });
+      this.setState({ experiences });
     }
 
     if (this.state.show !== prevState.show) {
       let experiences = await fetchUserExperiences(this.props.profile._id);
-      this.setState({ experiences: experiences });
+      this.setState({ experiences });
+    }
+    //JSON STRINGIFY compare string
+    if (
+      JSON.stringify({ exp: this.state.experiences }) !==
+      JSON.stringify({ exp: prevState.experiences })
+    ) {
+      let experiences = await fetchUserExperiences(this.props.profile._id);
+      this.setState({ experiences });
     }
   };
 

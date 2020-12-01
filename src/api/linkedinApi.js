@@ -209,7 +209,7 @@ export async function updateSingleExperience(userId, expId) {
 //DELETE SINGLE EXPERIENCE
 export async function deleteExperience(userId, expId) {
   try {
-    let response = fetch(
+    let response = await fetch(
       `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`,
       {
         method: "DELETE",
