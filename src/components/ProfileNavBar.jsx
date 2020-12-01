@@ -19,7 +19,7 @@ export default class ProfileNavBar extends Component {
             fixed="top"
             style={{
               zIndex: "100",
-              backgroundColor: "#fff",
+              backgroundColor: "#fefeff",
               boxShadow: " 0 0 0 1px rgba(0,0,0,.15),0 2px 3px rgba(0,0,0,.2)",
             }}
           >
