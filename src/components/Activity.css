@@ -13,14 +13,10 @@
 .activity-sec1,
 .activity-sec2,
 .activity-sec3 {
-  width: 100%;
-}
-.activity-sec1,
-.activity-sec2,
-.activity-sec3 {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
+  width: 100%;
 }
 #activity-text {
   font-size: 20px;
