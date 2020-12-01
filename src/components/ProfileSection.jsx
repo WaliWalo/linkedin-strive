@@ -25,20 +25,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default class ProfileSection extends Component {
-  state = {
-    profile: {},
-  };
-
-  async componentDidMount() {
-    let profile = await fetchMyProfile();
-    console.log(profile);
-    this.setState({ profile: profile });
-  }
-
   render() {
     return (
       <>
-        {this.state.profile && (
+        {this.props.profile && (
           <Container
             style={{
               border: "solid 1px",
@@ -242,7 +232,7 @@ export default class ProfileSection extends Component {
                   <Col>
                     <Row>
                       <Image
-                        src={this.state.profile.image}
+                        src={this.props.profile.image}
                         className="position-absolute"
                         style={{
                           zIndex: "10",
@@ -255,14 +245,14 @@ export default class ProfileSection extends Component {
                         }}
                       />
                       <h3 style={{ marginLeft: "1vh " }}>
-                        {this.state.profile.name} {this.state.profile.surname}
+                        {this.props.profile.name} {this.props.profile.surname}
                       </h3>
                     </Row>
                     <Row style={{ marginLeft: ".1vh " }}>
-                      {this.state.profile.title}
+                      {this.props.profile.title}
                     </Row>
                     <Row style={{ marginLeft: ".1vh " }}>
-                      {this.state.profile.area}
+                      {this.props.profile.area}
                     </Row>
                   </Col>
                   <Col></Col>

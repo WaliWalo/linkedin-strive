@@ -9,23 +9,12 @@ import {
   Dropdown,
   ButtonGroup,
 } from "react-bootstrap";
-import { fetchMyProfile } from "../api/linkedinApi";
 
 export default class ProfileNavBar extends Component {
-  state = {
-    profile: {},
-  };
-
-  async componentDidMount() {
-    let profile = await fetchMyProfile();
-
-    this.setState({ profile: profile });
-  }
-
   render() {
     return (
       <>
-        {this.state.profile && (
+        {this.props.profile && (
           <Navbar
             fixed="top"
             style={{
@@ -37,7 +26,7 @@ export default class ProfileNavBar extends Component {
             <Container>
               <Navbar.Brand href="#home">
                 <Image
-                  src={this.state.profile.image}
+                  src={this.props.profile.image}
                   style={{
                     width: "40px",
                     height: "40px",
@@ -49,9 +38,9 @@ export default class ProfileNavBar extends Component {
                 />
               </Navbar.Brand>
               <div>
-                {this.state.profile.name} &nbsp; {this.state.profile.surname}
+                {this.props.profile.name} &nbsp; {this.props.profile.surname}
                 <br></br>
-                {this.state.profile.title}
+                {this.props.profile.title}
               </div>
               <Navbar.Toggle />
               <Navbar.Collapse className="justify-content-end">

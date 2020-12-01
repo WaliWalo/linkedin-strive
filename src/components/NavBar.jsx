@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import {
   Navbar,
@@ -22,7 +22,6 @@ import {
   faTh,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
-import { fetchMyProfile } from "../api/linkedinApi";
 
 const NavBar = (props) => {
   // const { location } = props;
@@ -34,30 +33,14 @@ const NavBar = (props) => {
   const th = <FontAwesomeIcon icon={faTh} />;
   // const learn = <FontAwesomeIcon icon={faHome} />;
 
-  const [profile, setProfile] = useState({});
-
-  useEffect(() => {
-    try {
-      async function fetchData() {
-        let _profile = await fetchMyProfile();
-        if (profile._id !== _profile._id) {
-          setProfile(_profile);
-        }
-      }
-      fetchData();
-    } catch (error) {
-      console.log(error);
-    }
-  }, [profile]);
-
   return (
     <>
-      {profile && (
+      {props.profile && (
         <Navbar
           collapseOnSelect
           expand="lg"
           variant="light"
-          style={{ height: "6vh", backgroundColor: "#fff", zIndex: "1000" }}
+          style={{ height: "10vh", backgroundColor: "#fff", zIndex: "1000" }}
         >
           <Container>
             <Navbar.Brand href="#home">
@@ -116,7 +99,7 @@ const NavBar = (props) => {
                   title={
                     <div>
                       <Image
-                        src={profile.image}
+                        src={props.profile.image}
                         style={{
                           width: "20px",
                           height: "20px",
@@ -148,7 +131,7 @@ const NavBar = (props) => {
                     >
                       <div>
                         <Image
-                          src={profile.image}
+                          src={props.profile.image}
                           style={{
                             width: "40px",
                             height: "40px",
@@ -159,7 +142,7 @@ const NavBar = (props) => {
                             marginRight: "4px",
                           }}
                         />
-                        {profile.name} &nbsp; {profile.surname}
+                        {props.profile.name} &nbsp; {props.profile.surname}
                         <br></br>
                         <div
                           style={{
@@ -167,7 +150,7 @@ const NavBar = (props) => {
                             textDecoration: "none",
                           }}
                         >
-                          {profile.title}
+                          {props.profile.title}
                         </div>
                       </div>
                       <Button

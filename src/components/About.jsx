@@ -16,6 +16,7 @@ export default class About extends Component {
           </div>
         </Row>
         <Row>
+          <strong>{this.props.profile.bio} </strong>
           Had experience in JAVA, PHP, HTML, SQL, Visual Basic.Net and Symfony.
           Working in these company led me to use some of the skills to improve
           the technical side of the company such as building an excel worksheet

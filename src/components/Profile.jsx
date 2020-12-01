@@ -10,6 +10,7 @@ import Featured from "./Featured";
 import Interests from "./Interests";
 import PeopleKnow from "./PeopleKnow";
 import PeopleViewed from "./PeopleViewed";
+import ProfileNavBar from "./ProfileNavBar";
 import ProfileSection from "./ProfileSection";
 import Questions from "./Questions";
 import Skills from "./Skills";
@@ -18,11 +19,12 @@ export default class Profile extends Component {
   render() {
     return (
       <div>
+        <ProfileNavBar profile={this.props.profile} />
         <Container>
           <Row>
             <Col xs="9">
-              <ProfileSection />
-              <About />
+              <ProfileSection profile={this.props.profile} />
+              <About profile={this.props.profile} />
               <Featured />
               <Dashboard />
               <Activity />
