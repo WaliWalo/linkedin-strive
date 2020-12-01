@@ -26,7 +26,7 @@ class PeopleViewed extends Component {
     return (
       <div>
         {this.state.profiles && this.state.randomProfiles ? (
-          <div className="d-flex justify-content-end">
+          <div className="mt-4">
             <Card className="mr-5" style={{ width: "18rem" }}>
               <h4 className="mt-4">People also Viewed</h4>
               <Card.Body>

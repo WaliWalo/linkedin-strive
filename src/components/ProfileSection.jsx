@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from "react";
 import {
   Col,
@@ -13,7 +11,6 @@ import {
   Accordion,
   DropdownButton,
 } from "react-bootstrap";
-import { fetchMyProfile } from "../api/linkedinApi";
 import "./css/ProfileSection.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
