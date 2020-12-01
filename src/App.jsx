@@ -1,9 +1,7 @@
-/** @format */
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
-import Footer from "./components/Footer";
+import Foot from "./components/Foot";
 import Profile from "./components/Profile";
 import NavBar from "./components/NavBar";
 import ProfileSection from "./components/ProfileSection";
@@ -33,7 +31,7 @@ class App extends Component {
             )}
           />
           <Profile profile={this.state.profile} />
-          <Footer />
+          <Foot />
         </Router>
       </div>
     );
