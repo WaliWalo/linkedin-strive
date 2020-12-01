@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 import { createExperience } from "../api/linkedinApi";
@@ -125,14 +127,6 @@ export default class MyModal extends Component {
             </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={this.handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={this.handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
     );
   }

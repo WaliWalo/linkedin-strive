@@ -4,6 +4,16 @@
 }
 
 #aboutTitle {
+  
+  margin-left: 20px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
+}
+span{
+  padding: 20px;
+  margin: 20px auto;
+    width: 100%;
+    overflow-wrap: break-word;
+    
 }
