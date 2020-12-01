@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import "./Dashboard.css";
+import "./css/Dashboard.css";
 
 export default class Dashboard extends Component {
   render() {
     return (
       <Container>
         <Row>
-          <Col md={10} className="dashboard">
+          <Col className="dashboard">
             <div className="dashboard-sec1">
               <div className="dashboard-sec1-item1">
                 <h2 className="dashboard-text">Your Dashboard</h2>

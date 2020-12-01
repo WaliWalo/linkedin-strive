@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import "./Activity.css";
+import "./css/Activity.css";
 export default class Activity extends Component {
   render() {
     return (
       <Container>
         <Row>
-          <Col md={10} className="activity">
+          <Col className="activity">
             <div className="activity-sec1">
               <div className="activity-sec1-item1">
                 <h2 id="activity-text">Activity</h2>

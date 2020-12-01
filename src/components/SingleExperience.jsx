@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component } from "react";
-import { Button, Col, Container, ListGroup, Row } from "react-bootstrap";
+import { Col, Container, ListGroup, Row } from "react-bootstrap";
 import { faDumpsterFire } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./css/Dumpster.css";
@@ -27,7 +27,8 @@ export default class SingleExperience extends Component {
                 <Row>{this.props.experience.area}</Row>
               </Col>
               <Col xs={2}>
-                <FontAwesomeIcon className="yeet"
+                <FontAwesomeIcon
+                  className="yeet"
                   onClick={this.handleOnClick}
                   icon={faDumpsterFire}
                 />

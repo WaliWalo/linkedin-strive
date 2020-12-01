@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import "./Featured.css";
+import "./css/Featured.css";
 
 export default class Featured extends Component {
   render() {
