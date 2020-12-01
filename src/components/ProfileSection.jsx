@@ -35,224 +35,231 @@ export default class ProfileSection extends Component {
             id="profileCard"
           >
             <Row className="position-relative">
+              <Image
+                src={this.props.profile.image}
+                className="position-absolute"
+                style={{
+                  zIndex: "1000",
+
+                  width: "120px",
+                  height: "120px",
+                  borderRadius: "100px",
+                  left: "3%",
+                  top: "60%",
+                }}
+              />
               <Jumbotron>
                 <Image src="http://placehold.it/500x200" />
               </Jumbotron>
             </Row>
             <Row>
               <Col>
-                <Row id="addProfileSection">
-                  <Dropdown>
-                    <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                      Adding Profile Section
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                      <Accordion>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="0"
-                        >
-                          Intro
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="0">
-                          <p>
-                            Hung Jin, your Intro is looking good! Check out
-                            other sections you can add to your profile
-                          </p>
-                        </Accordion.Collapse>
-                      </Accordion>
-                      <Accordion>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="1"
-                        >
-                          About
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="1">
-                          <p>
-                            Looking good, Hung Jin This section is complete.
-                          </p>
-                        </Accordion.Collapse>
-                      </Accordion>
-                      <Accordion>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="2"
-                        >
-                          Featured
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="2">
-                          <div>
-                            <Dropdown.Item eventKey="1">Posts</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="2">Articles</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="4">Links</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="4">Media</Dropdown.Item>
-                          </div>
-                        </Accordion.Collapse>
-                      </Accordion>
-                      <Accordion>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="3"
-                        >
-                          Background
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="3">
-                          <div>
-                            <Dropdown.Item eventKey="1">
-                              Work experience
-                            </Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="2">
-                              Education
-                            </Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="4">
-                              Licenses & certifications
-                            </Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="4">
-                              Volunteer experience
-                            </Dropdown.Item>
-                          </div>
-                        </Accordion.Collapse>
-                      </Accordion>
-                      <Accordion>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="4"
-                        >
-                          Skills
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="4">
-                          <Dropdown.Item eventKey="1">Skills</Dropdown.Item>
-                        </Accordion.Collapse>
-                      </Accordion>
-                      <Accordion>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="5"
-                        >
-                          Accomplishment
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="5">
-                          <div>
-                            <Dropdown.Item eventKey="1">
-                              Publications
-                            </Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="2">Patents</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="4">Courses</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="4">Projects</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="4">
-                              Honors & awards
-                            </Dropdown.Item>
-                            <Dropdown.Item eventKey="2">
-                              Test scores
-                            </Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="2">
-                              Languages
-                            </Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="2">
-                              Organizations
-                            </Dropdown.Item>
-                            <Dropdown.Divider />
-                          </div>
-                        </Accordion.Collapse>
-                      </Accordion>
-                      <Accordion>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="6"
-                        >
-                          Additional Information
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="6">
-                          <Dropdown.Item eventKey="1">
-                            Request a recommendation
-                          </Dropdown.Item>
-                        </Accordion.Collapse>
-                      </Accordion>
-                      <Accordion>
-                        <Accordion.Toggle
-                          as={Button}
-                          variant="link"
-                          eventKey="7"
-                        >
-                          Supported Languages
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="7">
-                          <Dropdown.Item eventKey="1">
-                            Add profile in another language
-                          </Dropdown.Item>
-                        </Accordion.Collapse>
-                      </Accordion>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                  <DropdownButton
-                    id="dropdown-basic-button"
-                    title="More..."
-                    variant="light"
-                    className="ml-2"
-                  >
-                    <Dropdown.Item href="#/action-1">
-                      <FontAwesomeIcon icon={faShare} />
-                      Share profile in a messsage
-                    </Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">
-                      <FontAwesomeIcon icon={faDownload} />
-                      Save to PDF
-                    </Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">
-                      <FontAwesomeIcon icon={faFile} />
-                      Build a resume
-                    </Dropdown.Item>
-                  </DropdownButton>
-                </Row>
                 <Row>
-                  <Col>
+                  <Col className="ml-2 mt-5">
                     <Row>
-                      <Image
-                        src={this.props.profile.image}
-                        className="position-absolute"
-                        style={{
-                          zIndex: "10",
-
-                          width: "120px",
-                          height: "120px",
-                          borderRadius: "100px",
-                          left: "3%",
-                          top: "-150%",
-                        }}
-                      />
-                      <h3 style={{ marginLeft: "1vh " }}>
+                      <h3>
                         {this.props.profile.name} {this.props.profile.surname}
                       </h3>
                     </Row>
-                    <Row style={{ marginLeft: ".1vh " }}>
-                      {this.props.profile.title}
-                    </Row>
-                    <Row style={{ marginLeft: ".1vh " }}>
-                      {this.props.profile.area}
+                    <Row>{this.props.profile.title}</Row>
+                    <Row>{this.props.profile.area}</Row>
+                  </Col>
+                  <Col>
+                    <Row id="addProfileSection">
+                      <Col>
+                        <Dropdown>
+                          <Dropdown.Toggle
+                            variant="primary"
+                            id="dropdown-basic"
+                          >
+                            Adding Profile Section
+                          </Dropdown.Toggle>
+
+                          <Dropdown.Menu>
+                            <Accordion defaultActiveKey="0">
+                              <Card style={{ width: "25rem" }}>
+                                <Accordion.Toggle as={Card.Header} eventKey="0">
+                                  Intro
+                                </Accordion.Toggle>
+                                <Accordion.Collapse eventKey="0">
+                                  <Card.Body>
+                                    Hung Jin, your Intro is looking good! Check
+                                    out other sections you can add to your
+                                    profile
+                                  </Card.Body>
+                                </Accordion.Collapse>
+                              </Card>
+                              <Card>
+                                <Accordion.Toggle as={Card.Header} eventKey="1">
+                                  About
+                                </Accordion.Toggle>
+                                <Accordion.Collapse eventKey="1">
+                                  <Card.Body>
+                                    Looking good, Hung Jin This section is
+                                    complete.
+                                  </Card.Body>
+                                </Accordion.Collapse>
+                              </Card>
+                              <Card>
+                                <Accordion.Toggle as={Card.Header} eventKey="2">
+                                  About
+                                </Accordion.Toggle>
+                                <Accordion.Collapse eventKey="2">
+                                  <Card.Body>
+                                    Looking good, Hung Jin This section is
+                                    complete.
+                                  </Card.Body>
+                                </Accordion.Collapse>
+                              </Card>
+                              <Card>
+                                <Accordion.Toggle as={Card.Header} eventKey="3">
+                                  Featured
+                                </Accordion.Toggle>
+                                <Accordion.Collapse eventKey="3">
+                                  <Card.Body>
+                                    <div>
+                                      <Dropdown.Item eventKey="1">
+                                        Posts
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                      <Dropdown.Item eventKey="2">
+                                        Articles
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                      <Dropdown.Item eventKey="4">
+                                        Links
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                      <Dropdown.Item eventKey="4">
+                                        Media
+                                      </Dropdown.Item>
+                                    </div>
+                                  </Card.Body>
+                                </Accordion.Collapse>
+                              </Card>
+                              <Card>
+                                <Accordion.Toggle as={Card.Header} eventKey="4">
+                                  Background
+                                </Accordion.Toggle>
+                                <Accordion.Collapse eventKey="4">
+                                  <Card.Body>
+                                    <div>
+                                      <Dropdown.Item eventKey="1">
+                                        Work experience
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                      <Dropdown.Item eventKey="2">
+                                        Education
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                      <Dropdown.Item eventKey="3">
+                                        Licenses & certifications
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                      <Dropdown.Item eventKey="4">
+                                        Volunteer experience
+                                      </Dropdown.Item>
+                                    </div>
+                                  </Card.Body>
+                                </Accordion.Collapse>
+                              </Card>
+                              <Card>
+                                <Accordion.Toggle as={Card.Header} eventKey="5">
+                                  Skills
+                                </Accordion.Toggle>
+                                <Accordion.Collapse eventKey="5">
+                                  <Card.Body>Skills</Card.Body>
+                                </Accordion.Collapse>
+                              </Card>
+                              <Card>
+                                <Accordion.Toggle as={Card.Header} eventKey="6">
+                                  Accomplishment
+                                </Accordion.Toggle>
+                                <Accordion.Collapse eventKey="6">
+                                  <Card.Body>
+                                    <div>
+                                      <Dropdown.Item eventKey="1">
+                                        Publications
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                      <Dropdown.Item eventKey="2">
+                                        Patents
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                      <Dropdown.Item eventKey="3">
+                                        Courses
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                      <Dropdown.Item eventKey="4">
+                                        Projects
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                      <Dropdown.Item eventKey="5">
+                                        Honors & awards
+                                      </Dropdown.Item>
+                                      <Dropdown.Item eventKey="6">
+                                        Test scores
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                      <Dropdown.Item eventKey="7">
+                                        Languages
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                      <Dropdown.Item eventKey="8">
+                                        Organizations
+                                      </Dropdown.Item>
+                                      <Dropdown.Divider />
+                                    </div>
+                                  </Card.Body>
+                                </Accordion.Collapse>
+                              </Card>
+                              <Card>
+                                <Accordion.Toggle as={Card.Header} eventKey="7">
+                                  Additional Information
+                                </Accordion.Toggle>
+                                <Accordion.Collapse eventKey="7">
+                                  <Card.Body>
+                                    Request a recommendation
+                                  </Card.Body>
+                                </Accordion.Collapse>
+                              </Card>
+                              <Card>
+                                <Accordion.Toggle as={Card.Header} eventKey="8">
+                                  Supported Languages
+                                </Accordion.Toggle>
+                                <Accordion.Collapse eventKey="8">
+                                  <Card.Body>
+                                    Add profile in another language
+                                  </Card.Body>
+                                </Accordion.Collapse>
+                              </Card>
+                            </Accordion>
+                          </Dropdown.Menu>
+                        </Dropdown>
+                      </Col>
+                      <Col>
+                        <DropdownButton
+                          id="dropdown-basic-button"
+                          title="More..."
+                          variant="light"
+                          className="ml-5"
+                        >
+                          <Dropdown.Item href="#/action-1">
+                            <FontAwesomeIcon icon={faShare} />
+                            Share profile in a messsage
+                          </Dropdown.Item>
+                          <Dropdown.Item href="#/action-2">
+                            <FontAwesomeIcon icon={faDownload} />
+                            Save to PDF
+                          </Dropdown.Item>
+                          <Dropdown.Item href="#/action-3">
+                            <FontAwesomeIcon icon={faFile} />
+                            Build a resume
+                          </Dropdown.Item>
+                        </DropdownButton>
+                      </Col>
                     </Row>
                   </Col>
-                  <Col></Col>
                 </Row>
                 <Row>
                   <Card>
