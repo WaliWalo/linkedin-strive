@@ -17,7 +17,7 @@ class App extends Component {
     let profile = await fetchMyProfile();
     this.setState({ profile: profile });
   }
-
+  //fboadsjfboadsfbodsafbosdjfbadsjofbosdfboafjsb
   render() {
     return (
       <div className="App">
