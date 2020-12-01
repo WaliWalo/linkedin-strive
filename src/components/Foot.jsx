@@ -22,7 +22,7 @@ export default class Foot extends Component {
             src="https://download.logo.wine/logo/LinkedIn/LinkedIn-Logo.wine.png"
             style={{ width: "100px" }}
           />
-          <Row>
+          <Row xl={6}>
             <Col>
               <ListGroup variant="flush">
                 <ListGroup.Item
@@ -167,6 +167,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    whiteSpace: "nowrap",
                   }}
                 >
                   Talent Solutions
@@ -180,6 +181,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    whiteSpace: "nowrap",
                   }}
                 >
                   Marketing Solutions
