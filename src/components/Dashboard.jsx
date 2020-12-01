@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./css/Dashboard.css";
@@ -10,7 +12,7 @@ export default class Dashboard extends Component {
           <Col className="dashboard">
             <div className="dashboard-sec1">
               <div className="dashboard-sec1-item1">
-                <h2 className="dashboard-text">Your Dashboard</h2>
+                <h3 className="dashboard-text">Your Dashboard</h3>
                 <p className="text-italic">Private to you</p>
               </div>
               <div className="dashboard-sec1-item2">

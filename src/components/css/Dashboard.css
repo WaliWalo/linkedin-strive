@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: space-around;
-  padding: 24px;
+  padding-bottom: 24px;
   margin: 16px 0px 0px;
   background-color: #dce6ff;
   box-shadow: #dce6ff;
@@ -10,14 +10,13 @@
   border-radius: 10px;
 }
 .dashboard-text {
-  text-align: left;
-  font-size: 20px;
-  padding: 0px;
+  margin-left: 20px;
+  margin-top: 8px;
 }
 .text-italic {
   font-size: 16px;
   font-style: italic;
-  padding: 0px;
+  margin-left: 20px;
 }
 .dashboard-sec1,
 .dashboard-sec2,

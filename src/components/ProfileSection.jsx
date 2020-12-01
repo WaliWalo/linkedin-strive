@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import {
   Col,
@@ -38,7 +40,7 @@ export default class ProfileSection extends Component {
                 src={this.props.profile.image}
                 className="position-absolute"
                 style={{
-                  zIndex: "1000",
+                  zIndex: "10",
 
                   width: "120px",
                   height: "120px",

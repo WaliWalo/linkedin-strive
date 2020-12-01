@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import { Container, ListGroup, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -55,10 +57,10 @@ export default class Experience extends Component {
 
   render() {
     return (
-      <>
-        <Container>
+      <div>
+        <Container className="whatever">
           <Row className="headerRow">
-            <h2>Experience</h2>
+            <h3 className="text">Experience</h3>
             <FontAwesomeIcon icon={faPlusSquare} onClick={this.handleShow} />
           </Row>
           <Row>
@@ -82,7 +84,7 @@ export default class Experience extends Component {
             profile={this.props.profile}
           />
         </Container>
-      </>
+      </div>
     );
   }
 }

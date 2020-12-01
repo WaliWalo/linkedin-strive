@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: space-around;
-  padding: 24px;
+  padding-bottom: 24px;
   margin: 16px 0px 0px;
   background-color: white;
   box-shadow: #afa6a6e6;
@@ -19,9 +19,8 @@
   width: 100%;
 }
 #activity-text {
-  font-size: 20px;
-  text-align: left;
-  margin: 0px;
+  margin-left: 20px;
+  margin-top: 8px;
 }
 .activity-link {
   background-color: transparent;
@@ -59,6 +58,5 @@
   font-weight: 600;
 }
 .followers {
-  margin: 0px 8px 0px 0px;
-  padding: 0px 8px 0px 0px;
+  margin-top: 4px;
 }

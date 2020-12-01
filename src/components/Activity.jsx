@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./css/Activity.css";
@@ -9,7 +11,7 @@ export default class Activity extends Component {
           <Col className="activity">
             <div className="activity-sec1">
               <div className="activity-sec1-item1">
-                <h2 id="activity-text">Activity</h2>
+                <h3 id="activity-text">Activity</h3>
                 <p>
                   <span className="followers">492 followers </span>
                   <button type="button" className="activity-link">

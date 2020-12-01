@@ -1,6 +1,9 @@
 #aboutCard {
-  border: 1px solid grey;
-  box-shadow: 5px 2px #888888;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: #afa6a6e6;
+  border: 1px solid #afa6a6e6;
+  border-radius: 10px;
 }
 
 #aboutTitle {

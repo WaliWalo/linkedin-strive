@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./css/Featured.css";
@@ -8,7 +10,7 @@ export default class Featured extends Component {
       <Container>
         <Row>
           <Col className="featured">
-            <h2 className="featured-text">Featured</h2>
+            <h3 className="featured-text">Featured</h3>
             <div className="featured-description">
               <div className="featured-description-text">
                 <p className="desc">
