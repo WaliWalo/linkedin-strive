@@ -40,7 +40,7 @@ const NavBar = (props) => {
           collapseOnSelect
           expand="lg"
           variant="light"
-          style={{ height: "10vh", backgroundColor: "#fefeff", zIndex: "1000" }}
+          style={{ height: "50px", backgroundColor: "#fefeff", zIndex: "1000" }}
         >
           <Container>
             <Navbar.Brand href="#home">

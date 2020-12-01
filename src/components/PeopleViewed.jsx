@@ -1,7 +1,10 @@
+/** @format */
+
 import React, { Component } from "react";
 import { fetchListOfProfiles } from "../api/linkedinApi";
 import Profiles from "./Profiles";
 import { Card, ListGroup } from "react-bootstrap";
+
 
 class PeopleViewed extends Component {
   state = {

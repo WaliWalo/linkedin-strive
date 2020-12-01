@@ -219,7 +219,7 @@ export async function deleteExperience(userId, expId) {
       }
     );
     if (response.ok) {
-      return "Experience Deleted";
+      return "Experience Sent to Shadow Realm";
     } else {
       return "Something Went Wrong";
     }

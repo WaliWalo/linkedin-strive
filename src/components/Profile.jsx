@@ -16,6 +16,7 @@ import Questions from "./Questions";
 import Skills from "./Skills";
 import "./css/Profile.css";
 
+
 export default class Profile extends Component {
   render() {
     return (
