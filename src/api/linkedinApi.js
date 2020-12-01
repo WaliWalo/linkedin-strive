@@ -119,9 +119,9 @@ export async function fetchUserExperiences(userId) {
       `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`,
       {
         method: "GET",
-        headers: {
+        headers: new Headers({
           Authorization: "Bearer " + process.env.REACT_APP_DOGGO,
-        },
+        }),
       }
     );
 
@@ -137,12 +137,13 @@ export async function fetchUserExperiences(userId) {
 }
 
 //CREATE EXPERIENCE
-export async function createExperience(userId) {
+export async function createExperience(userId, experience) {
   try {
     let response = await fetch(
       `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`,
       {
-        method: "PUT",
+        method: "POST",
+        body: JSON.stringify(experience),
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + process.env.REACT_APP_DOGGO,
@@ -150,9 +151,9 @@ export async function createExperience(userId) {
       }
     );
     if (response.ok) {
-      return console.log("Experience Created");
+      return "Experience Created";
     } else {
-      return console.log("Something went wrong");
+      return "Something went wrong";
     }
   } catch (error) {
     console.log(error);
@@ -213,15 +214,14 @@ export async function deleteExperience(userId, expId) {
       {
         method: "DELETE",
         headers: {
-          "Content-Type": "application/json",
           Authorization: "Bearer " + process.env.REACT_APP_DOGGO,
         },
       }
     );
     if (response.ok) {
-      return console.log("Experience Deleted");
+      return "Experience Deleted";
     } else {
-      return console.log("Something Went Wrong");
+      return "Something Went Wrong";
     }
   } catch (error) {
     console.log(error);

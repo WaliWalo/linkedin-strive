@@ -26,7 +26,11 @@ class Profiles extends React.Component {
               <Card.Text>{this.state.profile.title}</Card.Text>
             </Col>
             <Col xs={2}>
-              <Button border="secondary" style={{ borderRadius: "70%" }}>
+              <Button
+                border="secondary"
+                style={{ borderRadius: "70%" }}
+                className="profilesBtn"
+              >
                 <i className="fab fa-telegram-plane"></i>hello{" "}
               </Button>
             </Col>
