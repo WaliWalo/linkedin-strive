@@ -22,7 +22,7 @@ export default class Profile extends Component {
         <ProfileNavBar profile={this.props.profile} />
         <Container>
           <Row>
-            <Col xs="9">
+            <Col xs={9}>
               <ProfileSection profile={this.props.profile} />
               <About profile={this.props.profile} />
               <Featured />
