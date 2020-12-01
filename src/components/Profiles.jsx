@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import "./Profiles.css";
 import { Row, Col, Card, ListGroupItem, Button } from "react-bootstrap";
