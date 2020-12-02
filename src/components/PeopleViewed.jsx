@@ -3,16 +3,15 @@
 import React, { Component } from "react";
 import { fetchListOfProfiles } from "../api/linkedinApi";
 import Profiles from "./Profiles";
-import './Profiles.css'
+import "./Profiles.css";
 import { Card, ListGroup, Accordion } from "react-bootstrap";
-
 
 class PeopleViewed extends Component {
   state = {
     profiles: [],
     randomProfiles: [],
     moreProfiles: [],
-   seeMore: true
+    seeMore: true,
   };
 
   async componentDidMount() {
@@ -33,15 +32,14 @@ class PeopleViewed extends Component {
       this.setState({ profiles: this.state.randomProfiles });
     }
   }
-  
+
   seeMore = () => {
     this.setState({
-      seeMore: false 
-    })
-  }
-  
+      seeMore: false,
+    });
+  };
+
   render() {
-    
     return (
       <div>
         {this.state.profiles && this.state.randomProfiles ? (
@@ -50,34 +48,32 @@ class PeopleViewed extends Component {
               <h4 className="mt-4 ml-3">People also Viewed</h4>
               <Card.Body className="my-0 mx-0 px-0 py-0">
                 <Accordion defaultActiveKey="0">
-                  <ListGroup className="list-group-flush">
-                      <>
+                  <ListGroup className="list-group-flush accordion">
+                    <>
                       {this.state.randomProfiles
-                      .slice(0, 6)
-                      .map((profile, index) => (
-                        <Profiles key={index} profiles={profile} />
-                      ))}
-                        </>
-                      <Accordion.Collapse eventKey="1">
-                        <>
-                          {this.state.randomProfiles
-                            .slice(6, 11)
-                            .map((profile, index) => (
-                              <Profiles key={index} profiles={profile} />
-                            ))}
-                        </>
-                      </Accordion.Collapse>  
+                        .slice(0, 6)
+                        .map((profile, index) => (
+                          <Profiles key={index} profiles={profile} />
+                        ))}
+                    </>
+                    <Accordion.Collapse eventKey="1">
+                      <>
+                        {this.state.randomProfiles
+                          .slice(6, 11)
+                          .map((profile, index) => (
+                            <Profiles key={index} profiles={profile} />
+                          ))}
+                      </>
+                    </Accordion.Collapse>
+
+                    <Accordion.Toggle
+                      as={Card.Header}
+                      eventKey="1"
+                      onClick={this.seeMore}
+                    >
+                      {this.state.seeMore ? "See more" : "See less"}
+                    </Accordion.Toggle>
                   </ListGroup>
-                  <Accordion.Toggle
-                        as={Card.Header}
-                        eventKey="1"
-                        onClick={this.seeMore} 
-                      
-                  >
-                        {this.state.seeMore ? "See more" : "See less" }
-                        
-                          
-                        </Accordion.Toggle>
                 </Accordion>
               </Card.Body>
             </Card>
