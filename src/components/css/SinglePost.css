@@ -33,3 +33,51 @@ h6{
 .commentBox{
     border-radius: 100px;
 }
+
+.ellipsisBtn{
+    background-color: transparent;
+    color: grey;
+    border: none;
+    text-decoration: none;
+}
+
+
+/* .ellipsisBtn:focus{
+    outline: transparent auto 5px;
+    border: none;
+    border-color: transparent;
+    background-color: transparent;
+    color: black;
+    text-decoration: none;
+} */
+.btn-primary.dropdown-toggle{
+    color: black!important;
+    border-color: transparent!important;
+    background-color: transparent !important;
+}
+.btn-primary.dropdown-toggle:focus{
+    color: black!important;
+    border-color: transparent!important;
+    background-color: transparent !important;
+}
+.ellipsisBtn:active{
+    outline: transparent;
+    border-style: outset;
+    border: none;
+    border-color: transparent;
+    background-color: transparent !important;
+    color: black;
+    text-decoration: none;
+}
+.ellipsisBtn:hover{
+    border: none;
+    background-color: transparent;
+    color: black;
+    text-decoration: none;
+}
+.dropdown-item{
+    background-color: transparent!important;
+}
+.dropdown-item{
+    color: #666666;
+}

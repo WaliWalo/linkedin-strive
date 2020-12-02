@@ -14,9 +14,11 @@ import {
   faCommentAlt,
   faEllipsisH,
   faPaperPlane,
+  faPen,
   faShare,
   faThumbsDown,
   faThumbsUp,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./css/SinglePost.css";
@@ -53,6 +55,8 @@ class SingleFeed extends Component {
                   {this.props.profile[0].title}
                 </p>
                 <p style={{ whiteSpace: "nowrap" }}>
+                  At:
+                  {this.props.profile[0].createdAt.slice(11, 16)} &nbsp; On:
                   {this.props.profile[0].createdAt.slice(0, 10)}
                 </p>
               </Col>
@@ -60,17 +64,17 @@ class SingleFeed extends Component {
               <Col xs={3}>
                 {this.props.myProfile.username ===
                   this.props.profile[0].username && (
-                  <Dropdown>
-                    <Dropdown.Toggle id="dropdown-basic">
+                  <Dropdown className="ml-3">
+                    <Dropdown.Toggle className="ellipsisBtn">
                       <FontAwesomeIcon icon={faEllipsisH} />
                     </Dropdown.Toggle>
 
-                    <Dropdown.Menu>
+                    <Dropdown.Menu className="ellipsisBtn mr-4">
                       <Dropdown.Item onClick={this.handleEdit}>
-                        Edit
+                        <FontAwesomeIcon icon={faPen} />
                       </Dropdown.Item>
                       <Dropdown.Item onClick={this.handleRemove}>
-                        Remove
+                        <FontAwesomeIcon icon={faTrash} />
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
