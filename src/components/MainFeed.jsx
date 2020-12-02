@@ -1,3 +1,5 @@
+/** @format */
+
 import {
   faCalendarCheck,
   faEdit,
@@ -7,13 +9,21 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Component } from "react";
-import { Button, Col, Container, Dropdown, Row } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Dropdown,
+  ListGroup,
+  Row,
+} from "react-bootstrap";
 import { fetchPosts } from "../api/linkedinPost";
 import "./css/MainFeed.css";
 import PostModal from "./PostModal";
+import SingleFeed from "./SingleFeed";
 
 export default class MainFeed extends Component {
-  state = { show: false };
+  state = { show: false, feeds: [] };
 
   handleShow = () => {
     this.setState({ show: true });
@@ -23,7 +33,10 @@ export default class MainFeed extends Component {
     this.setState({ show: false });
   };
 
-  componentDidMount = () => {};
+  componentDidMount = async () => {
+    let feeds = await fetchPosts();
+    this.setState({ feeds });
+  };
 
   render() {
     return (
@@ -33,7 +46,7 @@ export default class MainFeed extends Component {
           onHide={this.handleClose}
           profile={this.props.profile}
         />
-        <Container>
+        <Container className="mainPost mb-3">
           <Row className="mt-2">
             <Col>
               <Row>
@@ -86,7 +99,33 @@ export default class MainFeed extends Component {
               </Row>
             </Col>
           </Row>
-          <Row></Row>
+        </Container>
+        <Container>
+          <Row>
+            <Col xs={10}>
+              <Dropdown.Divider />
+            </Col>
+            <Col className="m-0" xs={2}>
+              <p>Sort by</p>
+            </Col>
+          </Row>
+        </Container>
+
+        <Container>
+          <Row>
+            <ListGroup>
+              {this.state.feeds &&
+                this.state.feeds.map((feed, index) => {
+                  return (
+                    <SingleFeed
+                      key={index}
+                      feed={feed}
+                      profile={this.props.profile}
+                    />
+                  );
+                })}
+            </ListGroup>
+          </Row>
         </Container>
       </div>
     );

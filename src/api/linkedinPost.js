@@ -32,13 +32,14 @@ export async function createPost(post) {
         body: JSON.stringify(post),
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + process.env.REACT_APP_DOGGO,
+         "Authorization": "Bearer " + process.env.REACT_APP_DOGGO,
         },
       }
     );
     if (response.ok) {
       return "Post Created";
     } else {
+      console.log(response)
       return "Something went wrong";
     }
   } catch (error) {

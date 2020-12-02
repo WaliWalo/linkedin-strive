@@ -35,3 +35,8 @@
 .postSecondary .col svg {
   font-size: larger;
 }
+
+.mainPost{
+  border: solid 1px #B7AFAF;
+  border-radius: 10px;
+}

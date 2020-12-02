@@ -1,3 +1,5 @@
+/** @format */
+
 import {
   faFile,
   faGlobeAmericas,
@@ -21,19 +23,19 @@ import { createPost } from "../api/linkedinPost";
 import "./css/PostModal.css";
 export default class PostModal extends Component {
   state = {
-    text: "",
+    post: { text: "" },
   };
 
   updateField = (e) => {
     let text = e.currentTarget.value;
-    this.setState({ text });
+    this.setState({ post: { text: text } });
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    let submitMsg = await createPost(this.state.text);
+    let submitMsg = await createPost(this.state.post);
     alert(submitMsg);
-    this.setState({ text: "" });
+    this.setState({ post: { text: "" } });
     let hideModal = this.props.onHide;
     hideModal();
   };

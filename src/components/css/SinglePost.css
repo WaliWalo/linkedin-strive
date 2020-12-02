@@ -1,0 +1,35 @@
+h6{
+    font-weight: 600;
+    white-space: nowrap;
+}
+.profileImg{
+    width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  left: 3%;
+  top: 60%;
+  margin-right: 10px;
+}
+
+.LikeDislike{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+    color: #666666;
+    
+}
+
+.LikeDislike span{
+    padding: 0;
+    margin: 0;
+    font-size: medium;
+}
+.addComment .col{
+    padding: 0;
+    margin: 0;
+}
+.commentBox{
+    border-radius: 100px;
+}
