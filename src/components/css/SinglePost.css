@@ -59,6 +59,8 @@ h6{
     color: black!important;
     border-color: transparent!important;
     background-color: transparent !important;
+    outline: none;
+    box-shadow: none!important;
 }
 .ellipsisBtn:active{
     outline: transparent;
