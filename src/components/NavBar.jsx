@@ -43,16 +43,17 @@ const NavBar = (props) => {
           style={{ height: "50px", backgroundColor: "#fefeff", zIndex: "1000" }}
         >
           <Container>
-            <Navbar.Brand href="#home">
-              <img
-                src="https://image.flaticon.com/icons/png/512/174/174857.png"
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
-                alt="React Bootstrap logo"
-              />
-            </Navbar.Brand>
-
+            <Link to="/">
+              <Navbar.Brand href="">
+                <img
+                  src="https://image.flaticon.com/icons/png/512/174/174857.png"
+                  width="30"
+                  height="30"
+                  className="d-inline-block align-top"
+                  alt="React Bootstrap logo"
+                />
+              </Navbar.Brand>
+            </Link>
             <Form className="d-inline-block position-relative">
               <FontAwesomeIcon
                 icon={faSearch}
@@ -75,7 +76,7 @@ const NavBar = (props) => {
               <Nav className="mr-auto"></Nav>
               <Nav style={{ marginTop: "2vh" }}>
                 <Link to="/">
-                  <Nav.Link href="#features">
+                  <Nav.Link href="">
                     {homeIcon}
                     <br></br>Start
                   </Nav.Link>
