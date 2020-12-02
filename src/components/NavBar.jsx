@@ -74,10 +74,12 @@ const NavBar = (props) => {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto"></Nav>
               <Nav style={{ marginTop: "2vh" }}>
-                <Nav.Link href="#features">
-                  {homeIcon}
-                  <br></br>Start
-                </Nav.Link>
+                <Link to="/">
+                  <Nav.Link href="#features">
+                    {homeIcon}
+                    <br></br>Start
+                  </Nav.Link>
+                </Link>
                 <Nav.Link href="#pricing">
                   {friendsIcon}
                   <br></br>Network

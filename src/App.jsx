@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import ProfileSection from "./components/ProfileSection";
 import { Component } from "react";
 import { fetchMyProfile } from "./api/linkedinApi";
+import Home from "./components/Home";
 
 class App extends Component {
   state = {
@@ -23,14 +24,17 @@ class App extends Component {
       <div className="App">
         <Router>
           <NavBar profile={this.state.profile} />
+
           <Route
-            path="/Profile"
+            path="/profile"
             exact
-            render={(props) => (
-              <ProfileSection {...props} profile={this.state.profile} />
-            )}
+            render={() => <Profile profile={this.state.profile} />}
           />
-          <Profile profile={this.state.profile} />
+          <Route
+            path="/"
+            exact
+            render={(props) => <Home profile={this.state.profile} />}
+          />
           <Foot />
         </Router>
       </div>
