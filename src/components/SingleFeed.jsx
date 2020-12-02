@@ -89,17 +89,13 @@ class SingleFeed extends Component {
             </Row>
             <Dropdown.Divider />
             <Row className="LikeDislike">
-              <FontAwesomeIcon icon={faThumbsUp} />
+              <FontAwesomeIcon icon={faThumbsUp} /> &nbsp;
               <span>Like</span>
-
-              <FontAwesomeIcon icon={faCommentAlt} />
+              <FontAwesomeIcon icon={faCommentAlt} /> &nbsp;
               <span>Comment</span>
-
-              <FontAwesomeIcon icon={faShare} />
-
+              <FontAwesomeIcon icon={faShare} /> &nbsp;
               <span>Share</span>
-
-              <FontAwesomeIcon icon={faPaperPlane} />
+              <FontAwesomeIcon icon={faPaperPlane} /> &nbsp;
               <span>Send</span>
             </Row>
             <Row className="mt-3 addComment">
