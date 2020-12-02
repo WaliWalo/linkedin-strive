@@ -20,6 +20,7 @@ export default class Home extends Component {
             </Col>
             <Col xs={3}>
               <SidebarRight />
+              
             </Col>
           </Row>
         </Container>
