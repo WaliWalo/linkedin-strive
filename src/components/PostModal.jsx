@@ -23,7 +23,7 @@ import { createPost } from "../api/linkedinPost";
 import "./css/PostModal.css";
 export default class PostModal extends Component {
   state = {
-    post: { text: "" },
+    post: { text: this.props.feedValue },
   };
 
   updateField = (e) => {
@@ -39,12 +39,17 @@ export default class PostModal extends Component {
     let hideModal = this.props.onHide;
     hideModal();
   };
+
   render() {
     return (
       <div>
         <Modal show={this.props.show} onHide={this.props.onHide}>
           <Modal.Header closeButton>
-            <Modal.Title>Create a Post</Modal.Title>
+            {this.props.edit ? (
+              <Modal.Title>Edit Post</Modal.Title>
+            ) : (
+              <Modal.Title>Create a Post</Modal.Title>
+            )}
           </Modal.Header>
           <Modal.Body>
             <Container>

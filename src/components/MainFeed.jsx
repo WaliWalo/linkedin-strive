@@ -17,13 +17,14 @@ import {
   ListGroup,
   Row,
 } from "react-bootstrap";
+import { fetchListOfProfiles } from "../api/linkedinApi";
 import { fetchPosts } from "../api/linkedinPost";
 import "./css/MainFeed.css";
 import PostModal from "./PostModal";
 import SingleFeed from "./SingleFeed";
 
 export default class MainFeed extends Component {
-  state = { show: false, feeds: [] };
+  state = { show: false, feeds: [], profiles: [], edit: false, filtered: "" };
 
   handleShow = () => {
     this.setState({ show: true });
@@ -33,9 +34,28 @@ export default class MainFeed extends Component {
     this.setState({ show: false });
   };
 
+  handleEdit = () => {
+    this.setState({ edit: true });
+  };
+
   componentDidMount = async () => {
     let feeds = await fetchPosts();
-    this.setState({ feeds });
+    this.setState({ feeds: feeds.reverse() });
+    let profiles = await fetchListOfProfiles();
+    this.setState({ profiles });
+  };
+
+  componentDidUpdate = async (prevProp, prevState) => {
+    if (this.state.feeds !== prevState.feeds) {
+      let feeds = await fetchPosts();
+      this.setState({ feeds: feeds.reverse() });
+    }
+    if (this.state.edit !== prevState.edit) {
+      let filtered = this.state.feeds.filter(
+        (feed) => feed.username === this.props.profile.username
+      )[0].text;
+      this.setState({ filtered });
+    }
   };
 
   render() {
@@ -45,6 +65,8 @@ export default class MainFeed extends Component {
           show={this.state.show}
           onHide={this.handleClose}
           profile={this.props.profile}
+          edit={this.state.edit}
+          feedValue={this.state.filtered}
         />
         <Container className="mainPost mb-3">
           <Row className="mt-2">
@@ -116,11 +138,17 @@ export default class MainFeed extends Component {
             <ListGroup>
               {this.state.feeds &&
                 this.state.feeds.map((feed, index) => {
+                  let filtered = this.state.profiles.filter(
+                    (profile) => profile.username === feed.username
+                  );
                   return (
                     <SingleFeed
                       key={index}
                       feed={feed}
-                      profile={this.props.profile}
+                      profile={filtered}
+                      myProfile={this.props.profile}
+                      showModal={this.handleShow}
+                      editModal={this.handleEdit}
                     />
                   );
                 })}

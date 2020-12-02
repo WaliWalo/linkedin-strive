@@ -36,7 +36,8 @@
   font-size: larger;
 }
 
-.mainPost{
-  border: solid 1px #B7AFAF;
+.mainPost {
+  border: solid 1px #b7afaf;
   border-radius: 10px;
+  width: 100%;
 }
