@@ -8,6 +8,7 @@ class PeopleViewed extends Component {
     profiles: [],
     randomProfiles: [],
     moreProfiles: [],
+    // seeMore: true
   };
 
   async componentDidMount() {
@@ -28,7 +29,7 @@ class PeopleViewed extends Component {
       this.setState({ profiles: this.state.randomProfiles });
     }
   }
-
+  // seeMore = () => { this.setState({seeMore: false})}
   render() {
     return (
       <div>
@@ -62,6 +63,7 @@ class PeopleViewed extends Component {
                           eventKey="1"
                         >
                           Click me!
+                          {/* onClick={this.seeMore} {this.state.seeMore ? (display See More):(display see less)} */}
                         </Accordion.Toggle>
                       </Card.Header>
                     </Card>
