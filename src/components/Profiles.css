@@ -1,6 +1,47 @@
-.profilesBtn {
-  position: absolute;
-  top: 20px;
-  background-color: white;
-  border-radius: 50%;
+.profile-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+#icon-plus {
+    width: 40px;
+    height: 40px;
+    margin-right: 0;
+    margin-top: px;
+    border: 2px solid gray;
+    border-radius: 50%;
+    padding-left: 6px;
+    padding-right: 6px;
+    
+}
+
+svg {
+    margin: 5px 0!important;
+}
+
+
+#list-item{
+    padding: 0 20px;
+    border-bottom: none;
+}
+
+#name-col{
+    padding: 0;
+    border-bottom: 1px solid rgb(172, 169, 169);
+}
+
+.title{
+    font-size: 17px;
+    margin-bottom: 0px;
+}
+
+#card-text{
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#icon-col{
+    
+    border-bottom: 1px solid rgb(172, 169, 169);
 }
