@@ -76,7 +76,7 @@ export default class MainFeed extends Component {
                   <FontAwesomeIcon
                     icon={faEdit}
                     style={{ fontSize: "larger" }}
-                  />
+                  />{" "}
                   Start A Post
                 </Button>
               </Row>
@@ -88,7 +88,7 @@ export default class MainFeed extends Component {
                       icon={faImage}
                       style={{ color: "#70B5F9" }}
                     />
-                    Photo
+                    &nbsp; Photo
                   </Button>
                 </Col>
                 <Col>
@@ -97,7 +97,7 @@ export default class MainFeed extends Component {
                       icon={faPlay}
                       style={{ color: "#E7A33E" }}
                     />
-                    Video
+                    &nbsp; Video
                   </Button>
                 </Col>
                 <Col>
@@ -106,7 +106,7 @@ export default class MainFeed extends Component {
                       icon={faCalendarCheck}
                       style={{ color: "#A0B4B7" }}
                     />
-                    Event
+                    &nbsp; Event
                   </Button>
                 </Col>
                 <Col>
@@ -115,7 +115,7 @@ export default class MainFeed extends Component {
                       icon={faNewspaper}
                       style={{ color: "#7FC15E" }}
                     />
-                    Write an Article
+                    &nbsp; Write an Article
                   </Button>
                 </Col>
               </Row>
