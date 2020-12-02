@@ -55,8 +55,9 @@ class SingleFeed extends Component {
                   {this.props.profile[0].title}
                 </p>
                 <p style={{ whiteSpace: "nowrap" }}>
-                  At:
-                  {this.props.profile[0].createdAt.slice(11, 16)} &nbsp; On:
+                  At:&nbsp;
+                  {this.props.profile[0].createdAt.slice(11, 16)} &nbsp;
+                  On:&nbsp;
                   {this.props.profile[0].createdAt.slice(0, 10)}
                 </p>
               </Col>
