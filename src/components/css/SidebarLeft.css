@@ -1,0 +1,161 @@
+.sidebar-left-profile {
+  border: 1px solid #dce6ff;
+  background-color: #ffffff;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  box-shadow: rgba(0, 0, 0, 0.08);
+  border-image-width: 1;
+  position: relative;
+  text-align: center;
+}
+
+.sidebar-left-profile-head {
+  padding: 12px 12px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-left-background-top {
+  background-image: url("https://static-exp1.licdn.com/sc/h/cpemy7gsm8bzfb5nnbbnswfdm");
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-size: 462px;
+  width: auto;
+  height: 54px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: -12px -12px 0px;
+}
+.sidebar-left-img {
+  height: 72px;
+  width: 72px;
+  margin-bottom: 12px;
+  margin-top: -38px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 50%;
+}
+.contain {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.sidebar-left-profileName {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+.sidebar-left-title {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  margin-top: 4px;
+  line-height: 16px;
+}
+.feed-identity {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  line-height: 20px;
+}
+.viewedProfile,
+.viewedPost {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+  padding: 4px 12px;
+  font-weight: 600;
+  width: 100%;
+  outline: none !important;
+}
+
+.viewedProfile:hover,
+.viewedProfile:focus,
+.viewedPost:hover,
+.viewedPost:focus {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.numb {
+  color: #0a66c2;
+  margin: 0px;
+  padding: 0px;
+  font-size: 12px;
+}
+.viewedProfile-text,
+.viewedPost-text,
+.sidebar-left-info {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.sidebar-left-subInfo {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0px;
+  padding: 12px;
+  color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  outline: none !important;
+}
+.sidebar-left-subInfo:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  text-decoration: underline;
+  text-decoration-color: #0a66c2;
+}
+
+.sidebar-left-sub {
+  display: flex;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+svg {
+  margin-right: 3px;
+}
+#savedItems {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0px;
+  padding: 12px;
+  color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  outline: none !important;
+}
+.savedItems {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.premium {
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.savedItems-text {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+#savedItems:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
