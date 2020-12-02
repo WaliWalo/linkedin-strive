@@ -1,0 +1,37 @@
+.postBtn {
+  width: 100%;
+  text-align: left;
+  background-color: transparent;
+  color: #666666;
+  border: none;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.postSecondary .col {
+  padding: 0;
+  margin: 0;
+}
+
+.postBtn:hover {
+  background-color: #f3f2ef;
+  color: #666666;
+}
+
+.post2Btn {
+  background-color: transparent;
+  color: #666666;
+  border: none;
+  white-space: nowrap;
+  height: 4.8rem;
+  margin-bottom: 10px;
+}
+
+.post2Btn:hover {
+  background-color: #f3f2ef;
+  color: #666666;
+}
+
+.postSecondary .col svg {
+  font-size: larger;
+}

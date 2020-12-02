@@ -14,7 +14,7 @@ export default class Home extends Component {
               <SidebarLeft profile={this.props.profile} />
             </Col>
             <Col xs={6} style={{ border: "solid 1px" }}>
-              <MainFeed />
+              <MainFeed profile={this.props.profile} />
             </Col>
             <Col xs={3} style={{ border: "solid 1px" }}>
               <SidebarRight />
