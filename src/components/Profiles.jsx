@@ -1,12 +1,14 @@
 import React from "react";
+import { Row, Col, Card, ListGroupItem } from "react-bootstrap";
 import "./Profiles.css";
-import { Row, Col, Card, ListGroupItem, Button } from "react-bootstrap";
+
 
 class Profiles extends React.Component {
   state = {
     profile: this.props.profiles,
   };
 
+    
   render() {
     return (
       <>
@@ -25,10 +27,10 @@ class Profiles extends React.Component {
               </Card.Title>
               <Card.Text>{this.state.profile.title}</Card.Text>
             </Col>
-            <Col xs={2}>
-              <Button border="secondary" style={{ borderRadius: "70%" }}>
-                <i className="fab fa-telegram-plane"></i>hello{" "}
-              </Button>
+            <Col xs={2} className="px-0">
+                        <a href="http://" className="btn border border-secondary" stye={{ borderRadius: "100%"}}>icon </a>
+                            
+              
             </Col>
           </Row>
         </ListGroupItem>
@@ -36,5 +38,4 @@ class Profiles extends React.Component {
     );
   }
 }
-
-export default Profiles;
+export default Profiles
