@@ -44,7 +44,7 @@ const NavBar = (props) => {
         >
           <Container>
             <Link to="/">
-              <Navbar.Brand href="">
+              <Navbar.Brand>
                 <img
                   src="https://image.flaticon.com/icons/png/512/174/174857.png"
                   width="30"
@@ -75,11 +75,9 @@ const NavBar = (props) => {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto"></Nav>
               <Nav style={{ marginTop: "2vh" }}>
-                <Link to="/">
-                  <Nav.Link href="">
-                    {homeIcon}
-                    <br></br>Start
-                  </Nav.Link>
+                <Link to="/" className="nav-link">
+                  {homeIcon}
+                  <br></br>Start
                 </Link>
                 <Nav.Link href="#pricing">
                   {friendsIcon}
