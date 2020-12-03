@@ -12,6 +12,7 @@ import {
   Accordion,
   DropdownButton,
   Form,
+  Button,
 } from "react-bootstrap";
 import "./css/ProfileSection.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,21 +23,34 @@ import {
   faPen,
   faShare,
 } from "@fortawesome/free-solid-svg-icons";
+import ProfileModal from "./ProfileModal";
 
 export default class ProfileSection extends Component {
   state = {
-    filesSelected: null,
+    show: false,
   };
 
-  handleChange(files) {
-    console.log(files);
-    this.setState({
-      filesSelected: files[0],
-    });
+  handleShow = () => {
+    this.setState({ show: true });
+  };
+
+  handleClose = () => {
+    this.setState({ show: false, edit: false });
+  };
+
+  componentDidUpdate(prevProp, prevState) {
+    if (this.state.show !== prevState.show) {
+      alert("Profile Updated");
+    }
   }
   render() {
     return (
       <>
+        <ProfileModal
+          profile={this.props.profile}
+          show={this.state.show}
+          onHide={this.handleClose}
+        />
         {this.props.profile && (
           <Container
             style={{
@@ -79,9 +93,8 @@ export default class ProfileSection extends Component {
                   <Col>
                     <Row id="addProfileSection">
                       <Col>
-                        <Form.File.Input
-                          onChange={(e) => this.handleChange(e.target.files)}
-                        />
+                        <Button onClick={this.handleShow}>Edit Profile</Button>
+
                         <Dropdown>
                           <Dropdown.Toggle
                             variant="primary"

@@ -113,20 +113,23 @@ export async function updateProfile() {
   }
 }
 
-export async function submitProfileImage(userId, image) {
+export async function submitProfileImage(userId, file) {
+  let form_data = new FormData();
+  form_data.append("profile", file, file.name);
+  console.log(form_data.get("profile"));
   try {
     let response = await fetch(
       `https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`,
       {
         method: "POST",
-        body: image,
+        body: form_data,
         headers: {
           Authorization: "Bearer " + process.env.REACT_APP_DOGGO,
         },
       }
     );
     if (response.ok) {
-      return "Image Created";
+      return "Profile Image Updated";
     } else {
       throw new Error("Could not add profile!");
     }
