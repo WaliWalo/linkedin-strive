@@ -97,3 +97,15 @@
   margin-top: 1000 !important;
   background: transparent !important;
 }
+
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload svg
+{ bottom: 30%;
+  right: 7%;
+  position: absolute;
+  
+}

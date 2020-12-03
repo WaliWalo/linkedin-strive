@@ -82,7 +82,7 @@ class SingleFeed extends Component {
                 )}
               </Col>
             </Row>
-            <Row>
+            <Row className="feedImage">
               <span>{this.props.feed.text}</span>
               <Image src={this.props.feed.image} />
             </Row>

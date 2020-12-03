@@ -47,6 +47,7 @@ export default class MainFeed extends Component {
 
   componentDidMount = async () => {
     let feeds = await fetchPosts();
+    console.log(feeds);
     this.setState({ feeds: feeds.reverse() }, () =>
       console.log(this.state.feeds[0].image)
     );

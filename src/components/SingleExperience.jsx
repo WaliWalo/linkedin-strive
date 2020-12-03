@@ -31,7 +31,7 @@ export default class SingleExperience extends Component {
                   style={{ width: "100px", height: "100px" }}
                 />
               </Col>
-              <Col xs={7} className="ml-1">
+              <Col xs={8} className="ml-1">
                 <Row>{this.props.experience.role}</Row>
                 <Row>{this.props.experience.company}</Row>
                 <Row>
@@ -40,16 +40,17 @@ export default class SingleExperience extends Component {
                 </Row>
                 <Row>{this.props.experience.area}</Row>
               </Col>
-              <Col xs={2}>
-                <FontAwesomeIcon
-                  className="yeet"
-                  onClick={this.handleOnClick}
-                  icon={faDumpsterFire}
-                />
+              <Col xs={1}>
                 <FontAwesomeIcon
                   className="yeet"
                   onClick={this.handleOnClickEdit}
                   icon={faPen}
+                />
+                &nbsp; &nbsp;
+                <FontAwesomeIcon
+                  className="yeet"
+                  onClick={this.handleOnClick}
+                  icon={faDumpsterFire}
                 />
               </Col>
             </Row>

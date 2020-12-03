@@ -21,6 +21,7 @@ import {
   faEye,
   faFile,
   faPen,
+  faPencilAlt,
   faShare,
 } from "@fortawesome/free-solid-svg-icons";
 import ProfileModal from "./ProfileModal";
@@ -56,6 +57,9 @@ export default class ProfileSection extends Component {
             id="profileCard"
           >
             <Row className="position-relative">
+              <Button className="editPfp" onClick={this.handleShow}>
+                <FontAwesomeIcon icon={faPencilAlt} />
+              </Button>
               <Image
                 src={this.props.profile.image}
                 className="position-absolute"
@@ -69,6 +73,7 @@ export default class ProfileSection extends Component {
                   top: "60%",
                 }}
               />
+
               <Jumbotron>
                 <Image src="http://placehold.it/500x200" />
               </Jumbotron>
@@ -88,8 +93,6 @@ export default class ProfileSection extends Component {
                   <Col>
                     <Row id="addProfileSection">
                       <Col>
-                        <Button onClick={this.handleShow}>Edit Profile</Button>
-
                         <Dropdown>
                           <Dropdown.Toggle
                             variant="primary"

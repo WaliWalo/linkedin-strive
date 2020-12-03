@@ -148,9 +148,21 @@ export default class PostModal extends Component {
                     <FontAwesomeIcon icon={faPlus} style={{ color: "blue" }} />
                   </Col>
                   <Col xs={1}>
-                    <Form.File.Input
+                    <div class="image-upload">
+                      <label for="file-input">
+                        <FontAwesomeIcon icon={faImage} />
+                      </label>
+
+                      <input
+                        onChange={(e) => this.handleChange(e.target.files)}
+                        id="file-input"
+                        type="file"
+                      />
+                    </div>
+                    {/* <Form.File.Input
+                      className="fileLocator"
                       onChange={(e) => this.handleChange(e.target.files)}
-                    />
+                    /> */}
                   </Col>
                   <Col xs={1}>
                     <FontAwesomeIcon icon={faVideo} />

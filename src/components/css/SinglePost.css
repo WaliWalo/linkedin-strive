@@ -83,3 +83,10 @@ h6{
 .dropdown-item{
     color: #666666;
 }
+
+.feedImage img{
+    max-width: 100%;
+    padding: auto;
+    margin: auto;
+    margin-bottom: 10px;
+}

@@ -34,3 +34,14 @@ svg {
 .card {
   width: 100%;
 }
+.editPfp{
+  position: absolute;
+  z-index: 11;
+  background-color: rgba(255, 255, 255, 0.795);
+  color: rgb(60, 60, 214);
+  border-color: grey;
+  border-radius: 100px;
+  font-size: 13;
+  left: 13%;
+  top: 96%;
+}
