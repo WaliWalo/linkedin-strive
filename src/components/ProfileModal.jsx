@@ -21,6 +21,8 @@ export default class ProfileModal extends Component {
       this.state.filesSelected
     );
     alert(submitMsg);
+    let hideModal = this.props.onHide;
+    hideModal();
   };
 
   render() {

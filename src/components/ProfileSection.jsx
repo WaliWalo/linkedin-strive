@@ -38,11 +38,6 @@ export default class ProfileSection extends Component {
     this.setState({ show: false, edit: false });
   };
 
-  componentDidUpdate(prevProp, prevState) {
-    if (this.state.show !== prevState.show) {
-      alert("Profile Updated");
-    }
-  }
   render() {
     return (
       <>

@@ -18,6 +18,13 @@ class App extends Component {
     let profile = await fetchMyProfile();
     this.setState({ profile: profile });
   }
+
+  async componentDidUpdate(prevProp, prevState) {
+    if (this.state.profile !== prevState.profile) {
+      let profile = await fetchMyProfile();
+      this.setState({ profile: profile });
+    }
+  }
   //fboadsjfboadsfbodsafbosdjfbadsjofbosdfboafjsb
   render() {
     return (
