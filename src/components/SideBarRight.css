@@ -2,3 +2,19 @@
     border: none;
     padding: 12px 20px 1px 5px; 
 }
+
+.sizedT{
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+}
+
+#sml-txt-size{
+    font-size: 11px;
+}
+
+.circleIcon{
+    height: 8px;
+    color: rgb(70, 161, 235);
+    
+}
