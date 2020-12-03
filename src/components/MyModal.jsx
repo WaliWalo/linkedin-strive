@@ -2,7 +2,11 @@
 
 import React, { Component } from "react";
 import { Button, Form, Modal, Row } from "react-bootstrap";
-import { createExperience } from "../api/linkedinApi";
+import {
+  createExperience,
+  submitExperienceImage,
+  updateSingleExperience,
+} from "../api/linkedinApi";
 import "./css/ExpModal.css";
 
 export default class MyModal extends Component {
@@ -15,6 +19,7 @@ export default class MyModal extends Component {
       description: "",
       area: "",
     },
+    filesSelected: null,
   };
 
   updateField = (e) => {
@@ -27,10 +32,29 @@ export default class MyModal extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    let submitMessage = await createExperience(
-      this.props.profile._id,
-      this.state.experience
-    );
+    let submitMessage;
+    let submitImgMsg;
+    if (this.props.edit !== true) {
+      submitMessage = await createExperience(
+        this.props.profile._id,
+        this.state.experience
+      );
+    } else {
+      submitMessage = await updateSingleExperience(
+        this.props.profile._id,
+        this.props.exp._id,
+        this.state.experience
+      );
+      if (this.state.filesSelected !== null) {
+        submitImgMsg = await submitExperienceImage(
+          this.props.profile._id,
+          this.state.filesSelected,
+          this.props.exp._id
+        );
+        alert(submitImgMsg);
+      }
+    }
+
     alert(submitMessage);
     this.setState({
       experience: {
@@ -46,6 +70,22 @@ export default class MyModal extends Component {
     hideModal();
   };
 
+  handleChange(files) {
+    console.log(files);
+    this.setState({
+      filesSelected: files[0],
+    });
+  }
+
+  componentDidUpdate(prevProp) {
+    let newExp = this.props.exp;
+    if (this.props.exp !== prevProp.exp) {
+      this.setState({
+        experience: newExp,
+      });
+    }
+  }
+
   render() {
     return (
       <Modal
@@ -54,7 +94,11 @@ export default class MyModal extends Component {
         onHide={this.props.onHide}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Add Experience</Modal.Title>
+          {this.props.edit ? (
+            <Modal.Title>Edit Experience</Modal.Title>
+          ) : (
+            <Modal.Title>Add Experience</Modal.Title>
+          )}
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={this.handleSubmit}>
@@ -119,6 +163,9 @@ export default class MyModal extends Component {
                   onChange={this.updateField}
                 />
               </Row>
+              <Form.File.Input
+                onChange={(e) => this.handleChange(e.target.files)}
+              />
             </Form.Group>
 
             <Button variant="primary" type="submit">

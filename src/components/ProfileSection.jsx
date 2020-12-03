@@ -11,6 +11,7 @@ import {
   Image,
   Accordion,
   DropdownButton,
+  Form,
 } from "react-bootstrap";
 import "./css/ProfileSection.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,6 +24,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default class ProfileSection extends Component {
+  state = {
+    filesSelected: null,
+  };
+
+  handleChange(files) {
+    console.log(files);
+    this.setState({
+      filesSelected: files[0],
+    });
+  }
   render() {
     return (
       <>
@@ -68,6 +79,9 @@ export default class ProfileSection extends Component {
                   <Col>
                     <Row id="addProfileSection">
                       <Col>
+                        <Form.File.Input
+                          onChange={(e) => this.handleChange(e.target.files)}
+                        />
                         <Dropdown>
                           <Dropdown.Toggle
                             variant="primary"

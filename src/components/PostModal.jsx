@@ -19,11 +19,17 @@ import {
   Modal,
   Row,
 } from "react-bootstrap";
-import { createPost } from "../api/linkedinPost";
+import {
+  createPost,
+  createPostImages,
+  updateSinglePost,
+} from "../api/linkedinPost";
 import "./css/PostModal.css";
 export default class PostModal extends Component {
   state = {
-    post: { text: this.props.feedValue },
+    post: { text: "" },
+    modified: "Post",
+    filesSelected: null,
   };
 
   updateField = (e) => {
@@ -33,12 +39,40 @@ export default class PostModal extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    let submitMsg = await createPost(this.state.post);
-    alert(submitMsg);
-    this.setState({ post: { text: "" } });
+    let submitMsg;
+    let submitImgMsg;
+    if (this.props.edit) {
+      submitMsg = await updateSinglePost(this.props.feed._id, this.state.post);
+      if (this.state.filesSelected !== null) {
+        submitImgMsg = await createPostImages(
+          this.props.feed._id,
+          this.state.filesSelected
+        );
+        alert(submitImgMsg);
+      }
+      this.setState({ post: { text: "" }, modified: "Post" });
+    } else {
+      submitMsg = await createPost(this.state.post);
+    }
+
+    alert(submitMsg, submitImgMsg);
+    this.setState({ post: { text: "" }, modified: "Post" });
     let hideModal = this.props.onHide;
     hideModal();
   };
+
+  handleChange(files) {
+    console.log(files);
+    this.setState({
+      filesSelected: files[0],
+    });
+  }
+
+  componentDidUpdate(prevProp) {
+    if (this.props.feed.text !== prevProp.feed.text) {
+      this.setState({ post: { text: this.props.feed.text }, modified: "Edit" });
+    }
+  }
 
   render() {
     return (
@@ -100,7 +134,7 @@ export default class PostModal extends Component {
                       placeholder="What do you wanna talk about?"
                       className="txtAreaControl"
                       required
-                      value={this.state.text}
+                      value={this.state.post.text}
                       onChange={this.updateField}
                     />
                   </Form.Group>
@@ -114,7 +148,9 @@ export default class PostModal extends Component {
                     <FontAwesomeIcon icon={faPlus} style={{ color: "blue" }} />
                   </Col>
                   <Col xs={1}>
-                    <FontAwesomeIcon icon={faImage} />
+                    <Form.File.Input
+                      onChange={(e) => this.handleChange(e.target.files)}
+                    />
                   </Col>
                   <Col xs={1}>
                     <FontAwesomeIcon icon={faVideo} />
@@ -124,12 +160,12 @@ export default class PostModal extends Component {
                   </Col>
                   <Col xs={6}></Col>
                   <Col xs={2}>
-                    {this.state.text === "" ? (
+                    {this.state.post.text === "" ? (
                       <Button disabled type="submit">
-                        Post
+                        {this.state.modified}
                       </Button>
                     ) : (
-                      <Button type="submit">Post</Button>
+                      <Button type="submit">{this.state.modified}</Button>
                     )}
                   </Col>
                 </Row>

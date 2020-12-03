@@ -92,3 +92,8 @@
   background-color: #f3f2ef;
   border: solid 1px;
 }
+
+#imageForm {
+  margin-top: 1000 !important;
+  background: transparent !important;
+}

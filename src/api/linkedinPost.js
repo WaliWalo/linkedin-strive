@@ -71,12 +71,13 @@ export async function fetchSinglePost(postId) {
 }
 
 //UPDATE SINGLE POST
-export async function updateSingleExperience(postId, updatedPost) {
+export async function updateSinglePost(postId, updatedPost) {
   try {
     let response = await fetch(
       `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
       {
         method: "PUT",
+        body: JSON.stringify(updatedPost),
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + process.env.REACT_APP_DOGGO,
@@ -84,9 +85,9 @@ export async function updateSingleExperience(postId, updatedPost) {
       }
     );
     if (response.ok) {
-      return console.log("Experience updated");
+      return "Post updated";
     } else {
-      return console.log("Something went wrong");
+      return "Something went wrong";
     }
   } catch (error) {
     console.log(error);
@@ -112,5 +113,39 @@ export async function deletePost(postId) {
     }
   } catch (error) {
     console.log(error);
+  }
+}
+
+//ADD IMAGE TO POST
+//CREATE POSTS
+export async function createPostImages(postId, file) {
+  // let formData = new FormData();
+
+  // files.map((file, index) => {
+  //   formData.append(`file${index}`, file);
+  // });
+  if (file !== null) {
+    let form_data = new FormData();
+    form_data.append("post", file, file.name);
+    console.log(form_data.get("post"));
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
+        {
+          method: "POST",
+          body: form_data,
+          headers: {
+            Authorization: "Bearer " + process.env.REACT_APP_DOGGO,
+          },
+        }
+      );
+      if (response.ok) {
+        return "Image Added";
+      } else {
+        return "Something went wrong";
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

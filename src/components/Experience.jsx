@@ -14,6 +14,8 @@ export default class Experience extends Component {
     experiences: [],
     show: false,
     profile: this.props.profile,
+    edit: false,
+    selectedExp: {},
   };
 
   handleShow = () => {
@@ -21,7 +23,11 @@ export default class Experience extends Component {
   };
 
   handleClose = () => {
-    this.setState({ show: false });
+    this.setState({ show: false, edit: false });
+  };
+
+  handleEdit = () => {
+    this.setState({ edit: true });
   };
 
   handleRemoveExp = async (userId, expId) => {
@@ -31,6 +37,10 @@ export default class Experience extends Component {
     );
     this.setState({ experiences });
     alert(submitMsg);
+  };
+
+  getExp = (exp) => {
+    this.setState({ selectedExp: exp });
   };
 
   componentDidMount = async () => {};
@@ -73,6 +83,9 @@ export default class Experience extends Component {
                       experience={experience}
                       profileId={this.props.profile._id}
                       handleRemove={this.handleRemoveExp}
+                      showModal={this.handleShow}
+                      handleEdit={this.handleEdit}
+                      getExp={this.getExp}
                     />
                   );
                 })}
@@ -82,6 +95,8 @@ export default class Experience extends Component {
             show={this.state.show}
             onHide={this.handleClose}
             profile={this.props.profile}
+            edit={this.state.edit}
+            exp={this.state.selectedExp}
           />
         </Container>
       </div>

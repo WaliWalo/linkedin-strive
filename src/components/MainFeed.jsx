@@ -24,7 +24,7 @@ import PostModal from "./PostModal";
 import SingleFeed from "./SingleFeed";
 
 export default class MainFeed extends Component {
-  state = { show: false, feeds: [], profiles: [], edit: false, filtered: "" };
+  state = { show: false, feeds: [], profiles: [], edit: false, filtered: {} };
 
   handleShow = () => {
     this.setState({ show: true });
@@ -32,15 +32,24 @@ export default class MainFeed extends Component {
 
   handleClose = () => {
     this.setState({ show: false });
+    this.setState({ edit: false });
   };
 
   handleEdit = () => {
     this.setState({ edit: true });
   };
 
+  handleEditFalse = () => {
+    this.setState({ edit: false });
+  };
+
+  handleResetState;
+
   componentDidMount = async () => {
     let feeds = await fetchPosts();
-    this.setState({ feeds: feeds.reverse() });
+    this.setState({ feeds: feeds.reverse() }, () =>
+      console.log(this.state.feeds[0].image)
+    );
     let profiles = await fetchListOfProfiles();
     this.setState({ profiles });
   };
@@ -53,7 +62,7 @@ export default class MainFeed extends Component {
     if (this.state.edit !== prevState.edit) {
       let filtered = this.state.feeds.filter(
         (feed) => feed.username === this.props.profile.username
-      )[0].text;
+      )[0];
       this.setState({ filtered });
     }
   };
@@ -66,7 +75,8 @@ export default class MainFeed extends Component {
           onHide={this.handleClose}
           profile={this.props.profile}
           edit={this.state.edit}
-          feedValue={this.state.filtered}
+          handleEdit={this.handleEditFalse}
+          feed={this.state.filtered}
         />
         <Container className="mainPost mb-3">
           <Row className="mt-2">
@@ -76,7 +86,7 @@ export default class MainFeed extends Component {
                   <FontAwesomeIcon
                     icon={faEdit}
                     style={{ fontSize: "larger" }}
-                  />{" "}
+                  />
                   Start A Post
                 </Button>
               </Row>

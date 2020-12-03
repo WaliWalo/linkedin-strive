@@ -43,6 +43,7 @@ export async function submitProfile(profile) {
     console.log(error);
   }
 }
+
 //process.env.REACT_APP_DOGGO
 export async function fetchMyProfile() {
   try {
@@ -112,6 +113,28 @@ export async function updateProfile() {
   }
 }
 
+export async function submitProfileImage(userId, image) {
+  try {
+    let response = await fetch(
+      `https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`,
+      {
+        method: "POST",
+        body: image,
+        headers: {
+          Authorization: "Bearer " + process.env.REACT_APP_DOGGO,
+        },
+      }
+    );
+    if (response.ok) {
+      return "Image Created";
+    } else {
+      throw new Error("Could not add profile!");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+//---------------------------------------------EXPERIENCE-------------------------
 //GET EXPERIENCES
 export async function fetchUserExperiences(userId) {
   try {
@@ -184,12 +207,13 @@ export async function fetchSingleExperience(userId, expId) {
 }
 
 //UPDATE SINGLE EXPERIENCE
-export async function updateSingleExperience(userId, expId) {
+export async function updateSingleExperience(userId, expId, updated) {
   try {
     let response = await fetch(
       `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`,
       {
         method: "PUT",
+        body: JSON.stringify(updated),
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + process.env.REACT_APP_DOGGO,
@@ -197,9 +221,9 @@ export async function updateSingleExperience(userId, expId) {
       }
     );
     if (response.ok) {
-      return console.log("Experience updated");
+      return "Experience updated";
     } else {
-      return console.log("Something went wrong");
+      return "Something went wrong";
     }
   } catch (error) {
     console.log(error);
@@ -222,6 +246,31 @@ export async function deleteExperience(userId, expId) {
       return "Experience Sent to Shadow Realm";
     } else {
       return "Something Went Wrong";
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function submitExperienceImage(userId, file, expId) {
+  let form_data = new FormData();
+  form_data.append("experience", file, file.name);
+  console.log(form_data.get("experience"));
+  try {
+    let response = await fetch(
+      `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}/picture`,
+      {
+        method: "POST",
+        body: form_data,
+        headers: {
+          Authorization: "Bearer " + process.env.REACT_APP_DOGGO,
+        },
+      }
+    );
+    if (response.ok) {
+      return "Image Created";
+    } else {
+      throw new Error("Could not add profile!");
     }
   } catch (error) {
     console.log(error);

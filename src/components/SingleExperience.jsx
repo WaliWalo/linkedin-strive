@@ -1,8 +1,8 @@
 /** @format */
 
 import React, { Component } from "react";
-import { Col, Container, ListGroup, Row } from "react-bootstrap";
-import { faDumpsterFire } from "@fortawesome/free-solid-svg-icons";
+import { Col, Container, Image, ListGroup, Row } from "react-bootstrap";
+import { faDumpsterFire, faPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./css/Dumpster.css";
 export default class SingleExperience extends Component {
@@ -10,14 +10,28 @@ export default class SingleExperience extends Component {
     const handleRemove = this.props.handleRemove;
     handleRemove(this.props.profileId, this.props.experience._id);
   };
+
+  handleOnClickEdit = () => {
+    let showModal = this.props.showModal;
+    let handleEdit = this.props.handleEdit;
+    let sendExpId = this.props.getExp;
+    showModal();
+    handleEdit();
+    sendExpId(this.props.experience);
+  };
   render() {
     return (
       <div>
         <ListGroup.Item>
           <Container>
             <Row>
-              <Col xs={2}>{this.props.experience.image}</Col>
-              <Col xs={8}>
+              <Col xs={2} className="pl-0">
+                <Image
+                  src={this.props.experience.image}
+                  style={{ width: "100px", height: "100px" }}
+                />
+              </Col>
+              <Col xs={7} className="ml-1">
                 <Row>{this.props.experience.role}</Row>
                 <Row>{this.props.experience.company}</Row>
                 <Row>
@@ -31,6 +45,11 @@ export default class SingleExperience extends Component {
                   className="yeet"
                   onClick={this.handleOnClick}
                   icon={faDumpsterFire}
+                />
+                <FontAwesomeIcon
+                  className="yeet"
+                  onClick={this.handleOnClickEdit}
+                  icon={faPen}
                 />
               </Col>
             </Row>

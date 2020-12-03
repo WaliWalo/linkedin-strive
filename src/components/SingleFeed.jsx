@@ -84,6 +84,7 @@ class SingleFeed extends Component {
             </Row>
             <Row>
               <span>{this.props.feed.text}</span>
+              <Image src={this.props.feed.image} />
             </Row>
             <Row className="ml-2">
               <FontAwesomeIcon icon={faThumbsDown} />
