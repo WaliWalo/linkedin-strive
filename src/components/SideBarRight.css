@@ -99,8 +99,16 @@ a:hover {
 .middle{
     position: relative;
     left: 90px;
+    
 }
 
 .footerbody{
     color: rgb(148, 154, 160);
+    
 }
+.no-border{
+    background-color: transparent;
+    color: grey !important;
+
+    
+} 
