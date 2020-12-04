@@ -35,8 +35,8 @@ export default class SingleExperience extends Component {
                 <Col xs={8} className="ml-1">
                   <Row>{this.props.experience.role}</Row>
                   <Row>{this.props.experience.company}</Row>
-                  {this.props.experience.startDate !== null &&
-                  this.props.experience.endDate !== null ? (
+                  {this.props.experience.startDate &&
+                  this.props.experience.endDate ? (
                     <Row>
                       {this.props.experience.startDate.slice(0, 7)}&nbsp; &nbsp;
                       {this.props.experience.endDate.slice(0, 7)}

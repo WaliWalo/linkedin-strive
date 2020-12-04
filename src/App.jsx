@@ -26,7 +26,7 @@ class App extends Component {
       this.setState({ profile: profile, loading: false });
     }
   }
-  //fboadsjfboadsfbodsafbosdjfbadsjofbosdfboafjsb
+
   render() {
     return (
       <div className="App">
