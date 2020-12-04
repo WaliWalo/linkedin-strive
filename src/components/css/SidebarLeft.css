@@ -188,6 +188,7 @@ svg {
 .wrapper {
   border: 1px solid #dce6ff;
   border-radius: 10px;
+  padding-top: 2px;
 }
 .accordHead {
   outline: none !important;
