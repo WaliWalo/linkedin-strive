@@ -3,6 +3,10 @@
     padding: 12px 20px 1px 5px; 
 }
 
+.no-border-np{
+    border: none;
+}
+
 .sizedT{
     font-size: 12px;
     font-weight: bold;
@@ -14,7 +18,23 @@
 }
 
 .circleIcon{
-    height: 8px;
+    padding-top: 5px;
     color: rgb(70, 161, 235);
-    
+    padding-bottom: 2px;
+    padding-left: 2px;
+}
+
+.h-link{
+   font-size: 12px;
+    font-weight: bold;
+    color: rgb(29, 108, 211); 
+}
+
+.CardHeader, .CardFooter {
+    background-color: white;
+}
+
+#numbSize {
+    font-size: 12px;
+    font-weight: bold;
 }
