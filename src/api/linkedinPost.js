@@ -13,6 +13,7 @@ export async function fetchPosts() {
 
     if (response.ok) {
       const data = response.json();
+      // console.log(data.slice(0, 20));
       return data;
     } else {
       return "Something Went Wrong";

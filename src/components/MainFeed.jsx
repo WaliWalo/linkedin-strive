@@ -55,7 +55,6 @@ export default class MainFeed extends Component {
 
   componentDidMount = async () => {
     let feeds = await fetchPosts();
-
     this.setState({ feeds: feeds.reverse(), loading: false });
 
     let profiles = await fetchListOfProfiles();
@@ -165,7 +164,7 @@ export default class MainFeed extends Component {
             ) : (
               <ListGroup>
                 {this.state.feeds &&
-                  this.state.feeds.map((feed, index) => {
+                  this.state.feeds.slice(0, 20).map((feed, index) => {
                     let filtered = this.state.profiles.filter(
                       (profile) => profile.username === feed.username
                     );
