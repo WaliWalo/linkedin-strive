@@ -53,9 +53,16 @@ export default class PostModal extends Component {
       this.setState({ post: { text: "" }, modified: "Post" });
     } else {
       submitMsg = await createPost(this.state.post);
+      if (this.state.filesSelected !== null) {
+        submitImgMsg = await createPostImages(
+          submitMsg._id,
+          this.state.filesSelected
+        );
+        alert(submitImgMsg);
+      }
     }
 
-    alert(submitMsg, submitImgMsg);
+    alert("Post Submitted");
     this.setState({ post: { text: "" }, modified: "Post" });
     let hideModal = this.props.onHide;
     hideModal();

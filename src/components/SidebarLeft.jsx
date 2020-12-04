@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 import "./css/SidebarLeft.css";
 
-export default class SidebarLeft extends Component {
+class SidebarLeft extends Component {
   render() {
     return (
       <Container>
@@ -16,6 +17,11 @@ export default class SidebarLeft extends Component {
                     src={this.props.profile.image}
                     className="contain"
                     alt=""
+                    onClick={() =>
+                      this.props.history.push(
+                        `/profile/${this.props.profile._id}`
+                      )
+                    }
                   />
                 </div>
                 <p className="sidebar-left-profileName">
@@ -45,7 +51,7 @@ export default class SidebarLeft extends Component {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     data-supported-dps="24x24"
-                    class="mercado-match"
+                    className="mercado-match"
                     width="17"
                     height="17"
                     focusable="false"
@@ -85,3 +91,5 @@ export default class SidebarLeft extends Component {
     );
   }
 }
+
+export default withRouter(SidebarLeft);

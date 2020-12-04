@@ -177,7 +177,7 @@ export async function createExperience(userId, experience) {
       }
     );
     if (response.ok) {
-      return "Experience Created";
+      return response.json();
     } else {
       return "Something went wrong";
     }

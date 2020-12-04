@@ -11,7 +11,6 @@ import {
   Image,
   Accordion,
   DropdownButton,
-  Form,
   Button,
 } from "react-bootstrap";
 import "./css/ProfileSection.css";

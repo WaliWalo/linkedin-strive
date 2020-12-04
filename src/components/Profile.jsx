@@ -15,23 +15,42 @@ import ProfileSection from "./ProfileSection";
 import Questions from "./Questions";
 import Skills from "./Skills";
 import "./css/Profile.css";
+import { fetchProfileById } from "../api/linkedinApi";
+import { withRouter } from "react-router-dom";
 
+class Profile extends Component {
+  state = {
+    profile: {},
+    profileId: this.props.match.params.id,
+  };
 
-export default class Profile extends Component {
+  componentDidMount = async () => {
+    const profile = await fetchProfileById(this.state.profileId);
+    this.setState({ profile });
+  };
+
+  componentDidUpdate = async (prevProp) => {
+    if (this.props.match.params.id !== prevProp.match.params.id) {
+      this.setState({ profileId: this.props.match.params.id });
+      const profile = await fetchProfileById(this.props.match.params.id);
+      this.setState({ profile });
+    }
+  };
+
   render() {
     return (
       <div>
-        <ProfileNavBar profile={this.props.profile} />
+        <ProfileNavBar profile={this.state.profile} />
         <div className="budy">
           <Container>
             <Row>
               <Col xs={9}>
-                <ProfileSection profile={this.props.profile} />
-                <About profile={this.props.profile} />
+                <ProfileSection profile={this.state.profile} />
+                <About profile={this.state.profile} />
                 <Featured />
                 <Dashboard />
                 <Activity />
-                <Experience profile={this.props.profile} />
+                <Experience profile={this.state.profile} />
                 <Skills />
                 <Interests />
               </Col>
@@ -47,3 +66,5 @@ export default class Profile extends Component {
     );
   }
 }
+
+export default withRouter(Profile);

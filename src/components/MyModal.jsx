@@ -39,6 +39,14 @@ export default class MyModal extends Component {
         this.props.profile._id,
         this.state.experience
       );
+      if (this.state.filesSelected !== null) {
+        submitImgMsg = await submitExperienceImage(
+          this.props.profile._id,
+          this.state.filesSelected,
+          submitMessage._id
+        );
+        alert(submitImgMsg);
+      }
     } else {
       submitMessage = await updateSingleExperience(
         this.props.profile._id,
@@ -55,7 +63,7 @@ export default class MyModal extends Component {
       }
     }
 
-    alert(submitMessage);
+    alert("Experience Created");
     this.setState({
       experience: {
         role: "",
@@ -71,7 +79,6 @@ export default class MyModal extends Component {
   };
 
   handleChange(files) {
-    console.log(files);
     this.setState({
       filesSelected: files[0],
     });

@@ -48,9 +48,7 @@ export default class MainFeed extends Component {
   componentDidMount = async () => {
     let feeds = await fetchPosts();
 
-    this.setState({ feeds: feeds.reverse() }, () =>
-      console.log(this.state.feeds[0].image)
-    );
+    this.setState({ feeds: feeds.reverse() });
 
     let profiles = await fetchListOfProfiles();
     this.setState({ profiles });
@@ -67,6 +65,11 @@ export default class MainFeed extends Component {
       )[0];
       this.setState({ filtered });
     }
+  };
+
+  handleSort = () => {
+    const feeds = this.state.feeds.reverse();
+    this.setState({ feeds });
   };
 
   render() {
@@ -139,7 +142,7 @@ export default class MainFeed extends Component {
             <Col xs={10}>
               <Dropdown.Divider />
             </Col>
-            <Col className="m-0" xs={2}>
+            <Col className="m-0" xs={2} onClick={this.handleSort}>
               <p>Sort by</p>
             </Col>
           </Row>

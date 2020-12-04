@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Foot from "./components/Foot";
 import Profile from "./components/Profile";
 import NavBar from "./components/NavBar";
-import ProfileSection from "./components/ProfileSection";
 import { Component } from "react";
 import { fetchMyProfile } from "./api/linkedinApi";
 import Home from "./components/Home";
@@ -33,8 +32,7 @@ class App extends Component {
           <NavBar profile={this.state.profile} />
 
           <Route
-            path="/profile"
-            exact
+            path="/profile/:id"
             render={() => <Profile profile={this.state.profile} />}
           />
           <Route

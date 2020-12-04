@@ -1,15 +1,7 @@
 /** @format */
 
 import React, { Component } from "react";
-import {
-  Col,
-  Container,
-  Dropdown,
-  Row,
-  Image,
-  Form,
-  Button,
-} from "react-bootstrap";
+import { Col, Container, Dropdown, Row, Image, Form } from "react-bootstrap";
 import {
   faCommentAlt,
   faEllipsisH,
@@ -23,6 +15,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./css/SinglePost.css";
 import { deletePost } from "../api/linkedinPost";
+import { withRouter } from "react-router-dom";
 
 class SingleFeed extends Component {
   handleRemove = async () => {
@@ -47,10 +40,23 @@ class SingleFeed extends Component {
                 <Image
                   className="profileImg"
                   src={this.props.profile[0].image}
+                  onClick={() =>
+                    this.props.history.push(
+                      `/profile/${this.props.profile[0]._id}`
+                    )
+                  }
                 />
               </Col>
               <Col xs={2}>
-                <h6>{this.props.feed.username}</h6>
+                <h6
+                  onClick={() =>
+                    this.props.history.push(
+                      `/profile/${this.props.profile[0]._id}`
+                    )
+                  }
+                >
+                  {this.props.feed.username}
+                </h6>
                 <p style={{ whiteSpace: "nowrap" }}>
                   {this.props.profile[0].title}
                 </p>
@@ -126,4 +132,4 @@ class SingleFeed extends Component {
   }
 }
 
-export default SingleFeed;
+export default withRouter(SingleFeed);
