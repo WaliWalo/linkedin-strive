@@ -1,7 +1,18 @@
 /** @format */
 
 import React, { Component } from "react";
-import { Col, Container, Dropdown, Row, Image, Form } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Dropdown,
+  Row,
+  Image,
+  Form,
+  ListGroup,
+  Accordion,
+  Card,
+  Button,
+} from "react-bootstrap";
 import {
   faCommentAlt,
   faEllipsisH,
@@ -16,8 +27,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./css/SinglePost.css";
 import { deletePost } from "../api/linkedinPost";
 import { withRouter } from "react-router-dom";
+import { fetchCommentsById, submitComment } from "../api/commentApi";
+import SingleComment from "./SingleComment";
 
 class SingleFeed extends Component {
+  state = {
+    comments: [],
+    comment: {
+      rate: 1,
+      comment: "",
+      elementId: this.props.feed._id,
+    },
+  };
+
   handleRemove = async () => {
     const removeResult = await deletePost(this.props.feed._id);
     alert(removeResult.toString());
@@ -28,6 +50,42 @@ class SingleFeed extends Component {
     let editModal = this.props.editModal;
     showModal();
     editModal();
+  };
+
+  onCommentChange = (e) => {
+    this.setState({
+      comment: {
+        comment: e.target.value,
+        rate: 1,
+        elementId: this.props.feed._id,
+      },
+    });
+  };
+
+  handleSearch = async (e) => {
+    if (e.keyCode === 13 || e.key === "Enter") {
+      const newComment = await submitComment(this.state.comment);
+      console.log(newComment);
+      this.setState({
+        comment: {
+          rate: 1,
+          comment: "",
+          elementId: this.props.feed._id,
+        },
+      });
+    }
+  };
+
+  componentDidMount = async () => {
+    const comments = await fetchCommentsById(this.props.feed._id);
+    this.setState({ comments: comments });
+  };
+
+  componentDidUpdate = async (prevProp, prevState) => {
+    if (this.state.comments !== prevState.comments) {
+      const comments = await fetchCommentsById(this.props.feed._id);
+      this.setState({ comments: comments });
+    }
   };
 
   render() {
@@ -106,11 +164,43 @@ class SingleFeed extends Component {
               <FontAwesomeIcon icon={faPaperPlane} /> &nbsp;
               <span>Send</span>
             </Row>
+            {this.state.comments.length !== 0 && (
+              <Row className="comments">
+                <Accordion
+                  defaultActiveKey="0"
+                  style={{
+                    width: "100%",
+                    textAlign: "center",
+                    maxWidth: "520px",
+                  }}
+                >
+                  <Card>
+                    <Card.Header>
+                      <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                        Show Comments!
+                      </Accordion.Toggle>
+                    </Card.Header>
+                    <Accordion.Collapse eventKey="1">
+                      <>
+                        {this.state.comments.map((comment) => {
+                          return (
+                            <Card.Body>
+                              <SingleComment comment={comment} />
+                            </Card.Body>
+                          );
+                        })}
+                      </>
+                    </Accordion.Collapse>
+                  </Card>
+                </Accordion>
+              </Row>
+            )}
+
             <Row className="mt-3 addComment">
               <Col xs={1} className="mt-2">
                 <Image
                   className="profileImg"
-                  src={this.props.profile[0].image}
+                  src={this.props.myProfile.image}
                 />
               </Col>
               <Col xs={10}>
@@ -120,11 +210,13 @@ class SingleFeed extends Component {
                     size="sm"
                     type="text"
                     placeholder="Add a comment..."
+                    onKeyDown={this.handleSearch}
+                    value={this.state.comment.comment}
+                    onChange={this.onCommentChange}
                   />
                 </Form.Group>
               </Col>
             </Row>
-            <Row></Row>
           </Container>
         )}
       </div>

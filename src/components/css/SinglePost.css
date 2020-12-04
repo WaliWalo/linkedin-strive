@@ -1,9 +1,9 @@
-h6{
-    font-weight: 600;
-    white-space: nowrap;
+h6 {
+  font-weight: 600;
+  white-space: nowrap;
 }
-.profileImg{
-    width: 40px;
+.profileImg {
+  width: 40px;
   height: 40px;
   border-radius: 100px;
   left: 3%;
@@ -11,36 +11,34 @@ h6{
   margin-right: 10px;
 }
 
-.LikeDislike{
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
-    flex-wrap: nowrap;
-    color: #666666;
-    
+.LikeDislike {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
+  color: #666666;
 }
 
-.LikeDislike span{
-    padding: 0;
-    margin: 0;
-    font-size: medium;
+.LikeDislike span {
+  padding: 0;
+  margin: 0;
+  font-size: medium;
 }
-.addComment .col{
-    padding: 0;
-    margin: 0;
+.addComment .col {
+  padding: 0;
+  margin: 0;
 }
-.commentBox{
-    border-radius: 100px;
-}
-
-.ellipsisBtn{
-    background-color: transparent;
-    color: grey;
-    border: none;
-    text-decoration: none;
+.commentBox {
+  border-radius: 100px;
 }
 
+.ellipsisBtn {
+  background-color: transparent;
+  color: grey;
+  border: none;
+  text-decoration: none;
+}
 
 /* .ellipsisBtn:focus{
     outline: transparent auto 5px;
@@ -50,43 +48,48 @@ h6{
     color: black;
     text-decoration: none;
 } */
-.btn-primary.dropdown-toggle{
-    color: black!important;
-    border-color: transparent!important;
-    background-color: transparent !important;
+.btn-primary.dropdown-toggle {
+  color: black !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
 }
-.btn-primary.dropdown-toggle:focus{
-    color: black!important;
-    border-color: transparent!important;
-    background-color: transparent !important;
-    outline: none;
-    box-shadow: none!important;
+.btn-primary.dropdown-toggle:focus {
+  color: black !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  outline: none;
+  box-shadow: none !important;
 }
-.ellipsisBtn:active{
-    outline: transparent;
-    border-style: outset;
-    border: none;
-    border-color: transparent;
-    background-color: transparent !important;
-    color: black;
-    text-decoration: none;
+.ellipsisBtn:active {
+  outline: transparent;
+  border-style: outset;
+  border: none;
+  border-color: transparent;
+  background-color: transparent !important;
+  color: black;
+  text-decoration: none;
 }
-.ellipsisBtn:hover{
-    border: none;
-    background-color: transparent;
-    color: black;
-    text-decoration: none;
+.ellipsisBtn:hover {
+  border: none;
+  background-color: transparent;
+  color: black;
+  text-decoration: none;
 }
-.dropdown-item{
-    background-color: transparent!important;
+.dropdown-item {
+  background-color: transparent !important;
 }
-.dropdown-item{
-    color: #666666;
+.dropdown-item {
+  color: #666666;
 }
 
-.feedImage img{
-    max-width: 100%;
-    padding: auto;
-    margin: auto;
-    margin-bottom: 10px;
+.feedImage img {
+  max-width: 100%;
+  padding: auto;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.comments {
+  display: flex;
+  justify-content: center;
 }
