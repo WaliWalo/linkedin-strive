@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import { React, useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import {
   Navbar,
@@ -11,6 +11,7 @@ import {
   Form,
   NavDropdown,
   FormControl,
+  Modal,
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -22,8 +23,18 @@ import {
   faTh,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import { fetchListOfProfiles } from "../api/linkedinApi";
+import SearchResult from "./SearchResult";
 
 const NavBar = (props) => {
+  const [show, setShow] = useState(false);
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+  const [profileList, setProfileList] = useState([]);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   // const { location } = props;
   const homeIcon = <FontAwesomeIcon icon={faHome} />;
   const friendsIcon = <FontAwesomeIcon icon={faUserFriends} />;
@@ -32,9 +43,62 @@ const NavBar = (props) => {
   const bell = <FontAwesomeIcon icon={faBell} />;
   const th = <FontAwesomeIcon icon={faTh} />;
   // const learn = <FontAwesomeIcon icon={faHome} />;
+  const search = (e) => {
+    //let s = e.target.value;
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const filtered = profileList.filter((profile) => {
+        return profile.username
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase());
+      });
+      setResults(filtered);
+      setQuery("");
+      handleShow();
+    } else {
+      setQuery(e.target.value);
+    }
+  };
+
+  const updateField = (e) => {
+    let query = e.currentTarget.value;
+    setQuery(query);
+  };
+
+  useEffect(() => {
+    async function fetchData() {
+      const profileList = await fetchListOfProfiles();
+      console.log(profileList);
+      setProfileList(profileList);
+      return profileList;
+    }
+    fetchData();
+  }, []);
 
   return (
     <>
+      {}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Profiles found for {query}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {results.map((result, index) => {
+            return (
+              <SearchResult
+                key={index}
+                result={result}
+                handleClose={handleClose}
+              />
+            );
+          })}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
       {props.profile && (
         <Navbar
           collapseOnSelect
@@ -59,15 +123,18 @@ const NavBar = (props) => {
                 icon={faSearch}
                 className="position-absolute"
                 style={{
-                  left: "5px",
-                  top: "50%",
+                  left: "20px",
+                  top: "45%",
                   transform: "translateY(-50%)",
                 }}
               />
               <FormControl
-                type="search"
+                type="text"
+                value={query}
                 placeholder="  search"
                 className="mr-sm-2"
+                onKeyPress={search}
+                onChange={updateField}
               />
             </Form>
 

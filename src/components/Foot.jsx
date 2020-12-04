@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import "./css/Foot.css";
 
 export default class Foot extends Component {
   render() {
@@ -34,6 +35,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   About
@@ -48,6 +50,7 @@ export default class Foot extends Component {
                     lineHeight: "1.33333",
                     fontWeight: "600",
                     whiteSpace: "nowrap",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Community GuideLines
@@ -60,6 +63,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Privacy & Terms
@@ -72,6 +76,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Sales Solutions
@@ -84,6 +89,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Safety Center
@@ -96,6 +102,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     whiteSpace: "nowrap",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   LinkedIn Corporation ©2020
@@ -113,6 +120,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Accessibility
@@ -126,6 +134,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Careers
@@ -138,6 +147,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Ad Choices
@@ -150,6 +160,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Mobile
@@ -168,6 +179,7 @@ export default class Foot extends Component {
                     lineHeight: "1.33333",
                     fontWeight: "600",
                     whiteSpace: "nowrap",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Talent Solutions
@@ -182,6 +194,7 @@ export default class Foot extends Component {
                     lineHeight: "1.33333",
                     fontWeight: "600",
                     whiteSpace: "nowrap",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Marketing Solutions
@@ -194,6 +207,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Advertising
@@ -206,6 +220,7 @@ export default class Foot extends Component {
                     fontSize: ".8rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Small Business
@@ -223,6 +238,7 @@ export default class Foot extends Component {
                     fontSize: ".9rem",
                     lineHeight: "1.33333",
                     fontWeight: "600",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   <FontAwesomeIcon icon={faQuestionCircle} />
@@ -237,6 +253,7 @@ export default class Foot extends Component {
                     color: "#56687A",
                     fontSize: ".7rem",
                     lineHeight: "1.33333",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Visit our Help Center
@@ -251,6 +268,7 @@ export default class Foot extends Component {
                     lineHeight: "1.33333",
                     fontWeight: "600",
                     whiteSpace: "nowrap",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   <FontAwesomeIcon icon={faCog} />
@@ -265,6 +283,7 @@ export default class Foot extends Component {
                     color: "#56687A",
                     fontSize: ".7rem",
                     lineHeight: "1.33333",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Go to your Settings
@@ -283,6 +302,7 @@ export default class Foot extends Component {
                     color: "#56687A",
                     fontSize: ".7rem",
                     lineHeight: "1.33333",
+                    backgroundColor: "#F3F2EF",
                   }}
                 >
                   Select Language
@@ -296,7 +316,8 @@ export default class Foot extends Component {
                       lineHeight: "1.33333",
                       color: "#56687A",
                       backgroundColor: "transparent",
-                      borderColor: "#56687A",
+                      border: "1px solid",
+                      borderColor: "black",
                     }}
                   >
                     English(English)
@@ -304,12 +325,11 @@ export default class Foot extends Component {
 
                   <Dropdown.Menu>
                     <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">
-                      Another action
-                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Inglish</Dropdown.Item>
                     <Dropdown.Item href="#/action-3">
-                      Something else
+                      no espanol senior
                     </Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">8====D</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </ListGroup>
