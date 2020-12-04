@@ -23,38 +23,50 @@ export default class SingleExperience extends Component {
     return (
       <div>
         <ListGroup.Item>
-          <Container>
-            <Row>
-              <Col xs={2} className="pl-0">
-                <Image
-                  src={this.props.experience.image}
-                  style={{ width: "100px", height: "100px" }}
-                />
-              </Col>
-              <Col xs={8} className="ml-1">
-                <Row>{this.props.experience.role}</Row>
-                <Row>{this.props.experience.company}</Row>
-                <Row>
-                  {this.props.experience.startDate.slice(0, 7)}&nbsp; &nbsp;
-                  {this.props.experience.endDate.slice(0, 7)}
-                </Row>
-                <Row>{this.props.experience.area}</Row>
-              </Col>
-              <Col xs={1}>
-                <FontAwesomeIcon
-                  className="yeet"
-                  onClick={this.handleOnClickEdit}
-                  icon={faPen}
-                />
-                &nbsp; &nbsp;
-                <FontAwesomeIcon
-                  className="yeet"
-                  onClick={this.handleOnClick}
-                  icon={faDumpsterFire}
-                />
-              </Col>
-            </Row>
-          </Container>
+          {this.props.experience !== null && (
+            <Container>
+              <Row>
+                <Col xs={2} className="pl-0">
+                  <Image
+                    src={this.props.experience.image}
+                    style={{ width: "100px", height: "100px" }}
+                  />
+                </Col>
+                <Col xs={8} className="ml-1">
+                  <Row>{this.props.experience.role}</Row>
+                  <Row>{this.props.experience.company}</Row>
+                  {this.props.experience.startDate &&
+                  this.props.experience.endDate ? (
+                    <Row>
+                      {this.props.experience.startDate.slice(0, 7)}&nbsp; &nbsp;
+                      {this.props.experience.endDate.slice(0, 7)}
+                    </Row>
+                  ) : (
+                    "N/A"
+                  )}
+
+                  <Row>{this.props.experience.area}</Row>
+                </Col>
+                <Col xs={1}>
+                  {this.props.profile._id === this.props.myProfile._id && (
+                    <>
+                      <FontAwesomeIcon
+                        className="yeet"
+                        onClick={this.handleOnClickEdit}
+                        icon={faPen}
+                      />
+                      &nbsp; &nbsp;
+                      <FontAwesomeIcon
+                        className="yeet"
+                        onClick={this.handleOnClick}
+                        icon={faDumpsterFire}
+                      />
+                    </>
+                  )}
+                </Col>
+              </Row>
+            </Container>
+          )}
         </ListGroup.Item>
       </div>
     );

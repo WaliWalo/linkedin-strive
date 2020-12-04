@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import { Button, Form, Modal, Row } from "react-bootstrap";
+import { Button, Form, Modal, Spinner } from "react-bootstrap";
 import { submitProfileImage } from "../api/linkedinApi";
 
 export default class ProfileModal extends Component {
   state = {
     filesSelected: null,
+    loading: false,
   };
 
   handleChange(files) {
-    console.log(files);
     this.setState({
       filesSelected: files[0],
     });
@@ -16,10 +16,12 @@ export default class ProfileModal extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+    this.setState({ loading: true });
     let submitMsg = await submitProfileImage(
       this.props.profile._id,
       this.state.filesSelected
     );
+    this.setState({ loading: false });
     alert(submitMsg);
     let hideModal = this.props.onHide;
     hideModal();
@@ -37,17 +39,23 @@ export default class ProfileModal extends Component {
             <Modal.Title>Edit Profile Picture</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form onSubmit={this.handleSubmit}>
-              <Form.Group>
-                <Form.File.Input
-                  onChange={(e) => this.handleChange(e.target.files)}
-                />
-              </Form.Group>
+            {this.state.loading ? (
+              <Spinner animation="border" role="status">
+                <span className="sr-only">Loading...</span>
+              </Spinner>
+            ) : (
+              <Form onSubmit={this.handleSubmit}>
+                <Form.Group>
+                  <Form.File.Input
+                    onChange={(e) => this.handleChange(e.target.files)}
+                  />
+                </Form.Group>
 
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
-            </Form>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Form>
+            )}
           </Modal.Body>
         </Modal>
       </div>

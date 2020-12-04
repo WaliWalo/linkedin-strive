@@ -14,7 +14,9 @@ export default class About extends Component {
             <h3>About</h3>
           </div>
           <div>
-            <FontAwesomeIcon icon={faPen} />
+            {this.props.profile._id === this.props.myProfile._id && (
+              <FontAwesomeIcon icon={faPen} />
+            )}
           </div>
         </Row>
         <Row>

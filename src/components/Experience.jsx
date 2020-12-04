@@ -71,7 +71,9 @@ export default class Experience extends Component {
         <Container className="whatever">
           <Row className="headerRow">
             <h3 className="text">Experience</h3>
-            <FontAwesomeIcon icon={faPlusSquare} onClick={this.handleShow} />
+            {this.props.profile._id === this.props.myProfile._id && (
+              <FontAwesomeIcon icon={faPlusSquare} onClick={this.handleShow} />
+            )}
           </Row>
           <Row>
             <ListGroup variant="flush" style={{ width: "100%" }}>
@@ -86,6 +88,8 @@ export default class Experience extends Component {
                       showModal={this.handleShow}
                       handleEdit={this.handleEdit}
                       getExp={this.getExp}
+                      profile={this.props.profile}
+                      myProfile={this.props.myProfile}
                     />
                   );
                 })}

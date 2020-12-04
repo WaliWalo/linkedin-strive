@@ -16,6 +16,7 @@ import {
   Dropdown,
   ListGroup,
   Row,
+  Spinner,
 } from "react-bootstrap";
 import { fetchListOfProfiles } from "../api/linkedinApi";
 import { fetchPosts } from "../api/linkedinPost";
@@ -24,7 +25,14 @@ import PostModal from "./PostModal";
 import SingleFeed from "./SingleFeed";
 
 export default class MainFeed extends Component {
-  state = { show: false, feeds: [], profiles: [], edit: false, filtered: {} };
+  state = {
+    show: false,
+    feeds: [],
+    profiles: [],
+    edit: false,
+    filtered: {},
+    loading: true,
+  };
 
   handleShow = () => {
     this.setState({ show: true });
@@ -47,10 +55,9 @@ export default class MainFeed extends Component {
 
   componentDidMount = async () => {
     let feeds = await fetchPosts();
-    console.log(feeds);
-    this.setState({ feeds: feeds.reverse() }, () =>
-      console.log(this.state.feeds[0].image)
-    );
+
+    this.setState({ feeds: feeds.reverse(), loading: false });
+
     let profiles = await fetchListOfProfiles();
     this.setState({ profiles });
   };
@@ -66,6 +73,11 @@ export default class MainFeed extends Component {
       )[0];
       this.setState({ filtered });
     }
+  };
+
+  handleSort = () => {
+    const feeds = this.state.feeds.reverse();
+    this.setState({ feeds });
   };
 
   render() {
@@ -138,7 +150,7 @@ export default class MainFeed extends Component {
             <Col xs={10}>
               <Dropdown.Divider />
             </Col>
-            <Col className="m-0" xs={2}>
+            <Col className="m-0" xs={2} onClick={this.handleSort}>
               <p>Sort by</p>
             </Col>
           </Row>
@@ -146,24 +158,30 @@ export default class MainFeed extends Component {
 
         <Container>
           <Row>
-            <ListGroup>
-              {this.state.feeds &&
-                this.state.feeds.map((feed, index) => {
-                  let filtered = this.state.profiles.filter(
-                    (profile) => profile.username === feed.username
-                  );
-                  return (
-                    <SingleFeed
-                      key={index}
-                      feed={feed}
-                      profile={filtered}
-                      myProfile={this.props.profile}
-                      showModal={this.handleShow}
-                      editModal={this.handleEdit}
-                    />
-                  );
-                })}
-            </ListGroup>
+            {this.state.loading ? (
+              <Spinner animation="border" role="status">
+                <span className="sr-only">Loading...</span>
+              </Spinner>
+            ) : (
+              <ListGroup>
+                {this.state.feeds &&
+                  this.state.feeds.map((feed, index) => {
+                    let filtered = this.state.profiles.filter(
+                      (profile) => profile.username === feed.username
+                    );
+                    return (
+                      <SingleFeed
+                        key={index}
+                        feed={feed}
+                        profile={filtered}
+                        myProfile={this.props.profile}
+                        showModal={this.handleShow}
+                        editModal={this.handleEdit}
+                      />
+                    );
+                  })}
+              </ListGroup>
+            )}
           </Row>
         </Container>
       </div>

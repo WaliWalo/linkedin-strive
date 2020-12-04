@@ -37,7 +37,7 @@ export async function createPost(post) {
       }
     );
     if (response.ok) {
-      return "Post Created";
+      return response.json();
     } else {
       console.log(response);
       return "Something went wrong";

@@ -124,7 +124,7 @@ const NavBar = (props) => {
                   >
                     {" "}
                     <Link
-                      to="/Profile"
+                      to={`/profile/${props.profile._id}`}
                       style={{
                         textDecoration: "none",
                         color: "black",
