@@ -220,7 +220,7 @@ export default class SidebarLeft extends Component {
                     </Accordion.Collapse>
                   </Card>
                 </Accordion>
-                <div className="savedItems">
+                <div className="savedItems bot">
                   <button type="button" id="discover">
                     <p className="savedItems-text parag"> Discover more</p>
                   </button>
