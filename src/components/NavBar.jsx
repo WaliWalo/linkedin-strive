@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import { React, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import {
   Navbar,
@@ -11,6 +11,7 @@ import {
   Form,
   NavDropdown,
   FormControl,
+  Modal,
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -24,6 +25,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = (props) => {
+  const [state, setState] = useState({
+    s: "",
+    results: [],
+    selected: {},
+  });
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   // const { location } = props;
   const homeIcon = <FontAwesomeIcon icon={faHome} />;
   const friendsIcon = <FontAwesomeIcon icon={faUserFriends} />;
@@ -32,9 +43,38 @@ const NavBar = (props) => {
   const bell = <FontAwesomeIcon icon={faBell} />;
   const th = <FontAwesomeIcon icon={faTh} />;
   // const learn = <FontAwesomeIcon icon={faHome} />;
+  const search = (e) => {
+    e.preventDefault();
+    let s = e.target.value;
+    if (e.key === "Enter") {
+      handleShow();
+    } else {
+      setState((prevState) => {
+        return { ...prevState, s: s };
+      });
+    }
+  };
+  const handleInput = (e) => {
+    let s = e.target.value;
 
+    setState((prevState) => {
+      return { ...prevState, s: s };
+    });
+  };
   return (
     <>
+      {}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Profiles found for {state.s}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
       {props.profile && (
         <Navbar
           collapseOnSelect
@@ -59,15 +99,18 @@ const NavBar = (props) => {
                 icon={faSearch}
                 className="position-absolute"
                 style={{
-                  left: "5px",
-                  top: "50%",
+                  left: "20px",
+                  top: "45%",
                   transform: "translateY(-50%)",
                 }}
               />
               <FormControl
-                type="search"
+                type="text"
+                value={state.s}
                 placeholder="  search"
                 className="mr-sm-2"
+                onChange={search}
+                onKeyPress={search}
               />
             </Form>
 
