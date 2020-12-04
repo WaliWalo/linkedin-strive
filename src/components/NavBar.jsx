@@ -1,6 +1,6 @@
 /** @format */
 
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import {
   Navbar,
@@ -23,14 +23,14 @@ import {
   faTh,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import { fetchListOfProfiles } from "../api/linkedinApi";
+import SearchResult from "./SearchResult";
 
 const NavBar = (props) => {
-  const [state, setState] = useState({
-    s: "",
-    results: [],
-    selected: {},
-  });
   const [show, setShow] = useState(false);
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+  const [profileList, setProfileList] = useState([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -44,31 +44,55 @@ const NavBar = (props) => {
   const th = <FontAwesomeIcon icon={faTh} />;
   // const learn = <FontAwesomeIcon icon={faHome} />;
   const search = (e) => {
-    e.preventDefault();
-    let s = e.target.value;
+    //let s = e.target.value;
     if (e.key === "Enter") {
+      e.preventDefault();
+      const filtered = profileList.filter((profile) => {
+        return profile.username
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase());
+      });
+      setResults(filtered);
+      setQuery("");
       handleShow();
     } else {
-      setState((prevState) => {
-        return { ...prevState, s: s };
-      });
+      setQuery(e.target.value);
     }
   };
-  const handleInput = (e) => {
-    let s = e.target.value;
 
-    setState((prevState) => {
-      return { ...prevState, s: s };
-    });
+  const updateField = (e) => {
+    let query = e.currentTarget.value;
+    setQuery(query);
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      const profileList = await fetchListOfProfiles();
+      console.log(profileList);
+      setProfileList(profileList);
+      return profileList;
+    }
+    fetchData();
+  }, []);
+
   return (
     <>
       {}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Profiles found for {state.s}</Modal.Title>
+          <Modal.Title>Profiles found for {query}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          {results.map((result, index) => {
+            return (
+              <SearchResult
+                key={index}
+                result={result}
+                handleClose={handleClose}
+              />
+            );
+          })}
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
@@ -106,11 +130,11 @@ const NavBar = (props) => {
               />
               <FormControl
                 type="text"
-                value={state.s}
+                value={query}
                 placeholder="  search"
                 className="mr-sm-2"
-                onChange={search}
                 onKeyPress={search}
+                onChange={updateField}
               />
             </Form>
 
