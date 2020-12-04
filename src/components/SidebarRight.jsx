@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import './SideBarRight.css'
 import { Card, ListGroup, Row, Col, Accordion, Button } from 'react-bootstrap'
 import pic from '../images/dream-job.jpg'
+import lady from '../images/lady.jpg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircle,
-  faHashtag
+  faHashtag,
+  faPlus,
+  faAngleDown
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -22,13 +25,13 @@ export default class SidebarRight extends Component {
   
   render() {
     return <div>
-      <Card className="mb-2 sidebarR">
+      <Card className="mb-2 sidebarR" style={{ width: '18rem' }}>
         <Card.Header className=" pl-2 CardHeader no-border">
           LinkedIn News
              </Card.Header>
         <Card.Body className='px-0 py-0'>
           <ListGroup variant="flush">
-            <ListGroup.Item className='no-border pr-0 pl-3 pt-0'>
+            <ListGroup.Item className='no-border pr-0 pl-3 pt-0 listH'>
               <Row>
                 <Col xs={1} className="px-0" >
                   <FontAwesomeIcon icon={faCircle} className="circleIcon" />
@@ -41,7 +44,7 @@ export default class SidebarRight extends Component {
               </Row>
 
             </ListGroup.Item>
-            <ListGroup.Item className='no-border pr-0 pl-3 pt-0'>
+            <ListGroup.Item className='no-border pr-0 pl-3 pt-0 listH'>
               <Row>
                 <Col xs={1} className="px-0" >
                   <FontAwesomeIcon icon={faCircle} className="circleIcon" />
@@ -53,7 +56,7 @@ export default class SidebarRight extends Component {
                 </Col>
               </Row>
             </ListGroup.Item>
-            <ListGroup.Item className='no-border pr-0 pl-3 pt-0'>
+            <ListGroup.Item className='no-border pr-0 pl-3 pt-0 listH'>
               <Row>
                 <Col xs={1} className="px-0">
                   <FontAwesomeIcon icon={faCircle} className="circleIcon" />
@@ -65,7 +68,7 @@ export default class SidebarRight extends Component {
                 </Col>
               </Row>
             </ListGroup.Item>
-            <ListGroup.Item className='no-border pr-0 pl-3 pt-0'>
+            <ListGroup.Item className='no-border pr-0 pl-3 pt-0 listH'>
               <Row>
                 <Col xs={1} className="px-0">
                   <FontAwesomeIcon icon={faCircle} className="circleIcon" />
@@ -77,7 +80,7 @@ export default class SidebarRight extends Component {
                 </Col>
               </Row>
             </ListGroup.Item>
-            <ListGroup.Item className='no-border pr-0 pl-3 pt-0'>
+            <ListGroup.Item className='no-border pr-0 pl-3 pt-0 listH'>
               <Row>
                 <Col xs={1} className="px-0">
                   <FontAwesomeIcon icon={faCircle} className="circleIcon" />
@@ -161,7 +164,7 @@ export default class SidebarRight extends Component {
               </Accordion.Collapse>
               <Card.Header  className="CardHeader no-border-np">
       <Accordion.Toggle as={Button} variant="link" eventKey="1" onClick={this.seeMore} className="h-link">
-        {this.state.seeMore ? "Show more": "Show less"}
+                 Show {this.state.seeMore ? "more ˅" : "less ˄" }
       </Accordion.Toggle>
     </Card.Header>
 </Accordion>
@@ -171,12 +174,12 @@ export default class SidebarRight extends Component {
 
 
       {/* trending courses */}
-      <Card className="mb-2">
+      <Card className="mb-2" style={{ width: '18rem' }}>
         <Card.Header className=" pl-2 CardHeader no-border">
           Today's most viewed course
              </Card.Header>
         <ListGroup variant="flush">
-          <ListGroup.Item className='no-border pr-0 pl-3 pt-0'>
+          <ListGroup.Item className='no-border pr-0 pl-3 pt-0 listH'>
             <Row>
               <Col xs={1} className="pl-2 pr-0 pt-1 sizedT">
                 1.
@@ -188,7 +191,7 @@ export default class SidebarRight extends Component {
               </Col>
             </Row>
           </ListGroup.Item>
-          <ListGroup.Item className='no-border pr-0 pl-3 pt-0'>
+          <ListGroup.Item className='no-border pr-0 pl-3 pt-0 listH'>
             <Row>
               <Col xs={1} className="pl-2 pr-0 pt-1 sizedT">2.</Col>
               <Col xs={11} className="px-0">
@@ -199,7 +202,7 @@ export default class SidebarRight extends Component {
             </Row>
             
           </ListGroup.Item>
-          <ListGroup.Item className='no-border pr-0 pl-3 pt-0'>
+          <ListGroup.Item className='no-border pr-0 pl-3 pt-0 listH'>
             <Row>
               <Col xs={1} className=" pl-2 pr-0 pt-1 sizedT" >3.</Col>
               <Col xs={11} className="px-0">
@@ -219,7 +222,7 @@ export default class SidebarRight extends Component {
       
 
       {/* image */}
-      <Card className="mb-2">
+      <Card className="mb-2" style={{ width: '18rem' }}>
         <Card.Body className=" px-1 py-1">
         <img src={pic} alt="" style={{ width: "100%" }} />
       </Card.Body>
@@ -227,31 +230,89 @@ export default class SidebarRight extends Component {
       
 
       {/* add to your feed */}
-      <Card>
-      <Card.Header className=" pl-2 CardHeader">
+      <Card className="mb-2" style={{ width: '18rem' }}>
+      <Card.Header className=" pl-2 pr-2 mb-2 CardHeader no-border">
           Add to your feed
+           </Card.Header>
         <ListGroup variant="flush">
             <ListGroup.Item className='no-border pr-1 pl-3 pt-0' >
               <Row>
-                <Col xs={2} className="pl-0 pr-0 pt-1">
+                <Col xs={2} className="pl-1 pr-0 pt-1">
                   <FontAwesomeIcon icon={faHashtag} className="hashtag mx-0 my-0" />
-                  
                   </Col>
-              <Col xs={6} className="px-0">
-                <p> #workingfromhome</p>
+              <Col xs={6} className=" pl-1 pr-0 pt-2">
+                  <div className="sizedT"> #workingfromhome</div>
                 </Col>
-                <Col xs={4} className="pl-1">
-                  <Button>Follow</Button>
+                <Col xs={4} className="pl-0 pr-2 pt-2 pb-2">
+                  <a href="http" className="Follow-btn"><FontAwesomeIcon icon={faPlus} className="plus" />Follow</a>
                 </Col>
               </Row>
             </ListGroup.Item>
-            
+            <ListGroup.Item className='no-border pr-1 pl-3 pt-0' >
+              <Row>
+                <Col xs={2} className="pl-1 pr-0 pt-1">
+                  <img src={lady} style={{width: "42px", height: "42px" }} alt="" className="lady"/>
+                  </Col>
+              <Col xs={6} className="pl-1 pr-0 pt-1">
+                  
+                  <div className="sizedT"> Christine Lagarde </div>
+                  <small className='text-muted'id='sml-txt-size'> President of the European Central Bank </small>
+                </Col>
+                <Col xs={4} className="pl-0 pr-2 pt-2 pb-2">
+                  <a href="http" className="Follow-btn"><FontAwesomeIcon icon={faPlus} className="plus" />Follow</a>
+                </Col>
+              </Row>
+            </ListGroup.Item>
+            <ListGroup.Item className='no-border pr-1 pl-3 pt-0' >
+              <Row>
+                <Col xs={2} className="pl-1 pr-0 pt-1">
+                  <FontAwesomeIcon icon={faHashtag} className="hashtag mx-0 my-0" />
+                  </Col>
+              <Col xs={6} className="pl-1 pr-1 pt-2">
+                <div className="sizedT"> #productdesign</div>
+                </Col>
+                <Col xs={4} className="pl-0 pr-2 pt-2 pb-2">
+                  <a href="http" className="Follow-btn"><FontAwesomeIcon icon={faPlus} className="plus" />Follow</a>
+                </Col>
+              </Row>
+            </ListGroup.Item>
             <Card.Footer className="CardFooter no-border-np">
           <a href="http://" className="h-link">View all recommendations </a>
         </Card.Footer>
         </ListGroup>
-        </Card.Header>
+        
       </Card>
+
+      {/* footer */}
+
+      
+      <Card.Body style={{ width: '18rem' }} className="pr-0 ft-txt footerbody">
+        <ListGroup className="list-group-flush">
+          <ListGroup.Item className="no-border">
+            <Card.Link className="">About</Card.Link>
+          <Card.Link  className="">Accessibility</Card.Link>
+          <Card.Link  className="">Help Center</Card.Link></ListGroup.Item>
+          <ListGroup.Item className="px-0 no-border">
+            <Card.Link  className="ml-0">Privacy & Terms</Card.Link>
+          <Card.Link  className="">Ad Choices</Card.Link>
+<Card.Link  className="">Advertising</Card.Link>
+            </ListGroup.Item>
+          <ListGroup.Item className="pl-1 pr-0 no-border">
+            <Card.Link  className="">Business Services</Card.Link>
+            <Card.Link  className="">Get the LinkedIn app</Card.Link>
+          </ListGroup.Item>
+          <ListGroup.Item >
+            <Card.Link  className="middle">more</Card.Link>
+          </ListGroup.Item>
+  </ListGroup>  
+     </Card.Body>
+          
+        
+        <Card.Footer>
+          LinkedIn Corporation © 2020
+        </Card.Footer>
+
+
     </div>;
 
   }

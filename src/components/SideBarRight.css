@@ -40,8 +40,67 @@
 }
 
 .hashtag {
-    border: 4px solid rgb(113, 139, 160);
+    border: 3px solid rgb(113, 139, 160);
     border-radius: 50%;
-    height: 30px;
+    width: 40px!important;
     background-color: rgb(230, 249, 255);
+    height: 40px!important;
+    padding: 3px!important;
+}
+
+.Follow-btn:hover{
+    background-color: #007bff;
+    color: white;
+}
+
+.Follow-btn{
+    background-color: transparent;
+    border-radius: 30px;
+    border: 1px solid #007bff;
+    color: #007bff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 2px;
+    display: block;
+    text-align: center;
+    position: relative;
+    bottom: 3px;
+    right: 8px;
+}
+
+.plus{
+    position: relative;
+    left: 2px;
+    margin-right: 10px;
+}
+
+.lady{
+    border-radius: 50%;
+}
+
+.listH:hover {
+    background-color: rgb(227, 230, 233);
+    text-decoration: none;
+}
+.listH {
+    background-color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.ft-txt{
+    font-size: smaller;
+    
+}
+
+.middle{
+    position: relative;
+    left: 90px;
+}
+
+.footerbody{
+    color: rgb(148, 154, 160);
 }
