@@ -4,7 +4,8 @@ import { Card, ListGroup, Row, Col, Accordion, Button } from 'react-bootstrap'
 import pic from '../images/dream-job.jpg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCircle
+  faCircle,
+  faHashtag
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -131,7 +132,7 @@ export default class SidebarRight extends Component {
                   </ListGroup.Item>
                   <ListGroup.Item className='no-border pr-0 pl-3 pt-0'>
               <Row>
-                <Col xs={1} className="px-0 pb-1">
+                <Col xs={1} className="px-0">
                   <FontAwesomeIcon icon={faCircle} className="circleIcon" />
                 </Col>
                 <Col xs={11} className="px-0">
@@ -230,16 +231,21 @@ export default class SidebarRight extends Component {
       <Card.Header className=" pl-2 CardHeader">
           Add to your feed
         <ListGroup variant="flush">
-                      <ListGroup.Item className='no-border pr-0 pl-3 pt-0'>
-            <Row>
-              <Col xs={1} className=" pl-1 pr-0">3.</Col>
-              <Col xs={11} className="px-0">
-              <a href="http://" className="sizedT">Time Management for Busy People</a>
-              <br />
-              <small className='text-muted'id='sml-txt-size'> Madecraft and Samantha Bennett </small>
-              </Col>
-            </Row>
-          </ListGroup.Item>
+            <ListGroup.Item className='no-border pr-1 pl-3 pt-0' >
+              <Row>
+                <Col xs={2} className="pl-0 pr-0 pt-1">
+                  <FontAwesomeIcon icon={faHashtag} className="hashtag mx-0 my-0" />
+                  
+                  </Col>
+              <Col xs={6} className="px-0">
+                <p> #workingfromhome</p>
+                </Col>
+                <Col xs={4} className="pl-1">
+                  <Button>Follow</Button>
+                </Col>
+              </Row>
+            </ListGroup.Item>
+            
             <Card.Footer className="CardFooter no-border-np">
           <a href="http://" className="h-link">View all recommendations </a>
         </Card.Footer>
