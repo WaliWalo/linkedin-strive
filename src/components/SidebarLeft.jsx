@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Accordion, Card, Button } from "react-bootstrap";
-import {
-  faUsers,
-  faAngleDown,
-  faHashtag,
-} from "@fortawesome/free-solid-svg-icons";
+import { Container, Row, Col, Accordion, Card } from "react-bootstrap";
+import { faUsers, faHashtag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withRouter } from "react-router-dom";
 import "./css/SidebarLeft.css";
@@ -16,7 +12,6 @@ class SidebarLeft extends Component {
     this.setState({ isActive: !this.state.isActive });
   };
   render() {
-    const isActive = this.state.isActive;
     return (
       <>
         <Container>
@@ -137,15 +132,11 @@ class SidebarLeft extends Component {
                         </div>
                         <div>
                           <FontAwesomeIcon icon={faHashtag} className="hash" />
-                          <span className="itemText">
-                            healthandsafetyconsultancy
-                          </span>
+                          <span className="itemText">healthandsafety</span>
                         </div>
                         <div>
                           <FontAwesomeIcon icon={faHashtag} className="hash" />
-                          <span className="itemText">
-                            healthandsafetylegistlation
-                          </span>
+                          <span className="itemText">healthandsafety</span>
                         </div>
                       </Card.Body>
                     </Accordion.Collapse>
@@ -211,15 +202,11 @@ class SidebarLeft extends Component {
                         </div>
                         <div>
                           <FontAwesomeIcon icon={faHashtag} className="hash" />
-                          <span className="itemText">
-                            healthandsafetyconsultancy
-                          </span>
+                          <span className="itemText">healthandsafety</span>
                         </div>
                         <div>
                           <FontAwesomeIcon icon={faHashtag} className="hash" />
-                          <span className="itemText">
-                            healthandsafetylegistlation
-                          </span>
+                          <span className="itemText">healthandsafety</span>
                         </div>
                       </Card.Body>
                     </Accordion.Collapse>

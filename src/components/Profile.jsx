@@ -45,7 +45,10 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <ProfileNavBar profile={this.state.profile} />
+        {this.state.profile._id === this.props.profile._id && (
+          <ProfileNavBar profile={this.props.profile} />
+        )}
+
         <div className="budy">
           <Container>
             <Row>

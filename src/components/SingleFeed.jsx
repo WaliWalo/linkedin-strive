@@ -12,6 +12,7 @@ import {
   Accordion,
   Card,
   Button,
+  Spinner,
 } from "react-bootstrap";
 import {
   faCommentAlt,
@@ -38,6 +39,7 @@ class SingleFeed extends Component {
       comment: "",
       elementId: this.props.feed._id,
     },
+    loading: true,
   };
 
   handleRemove = async () => {
@@ -64,6 +66,7 @@ class SingleFeed extends Component {
 
   handleSearch = async (e) => {
     if (e.keyCode === 13 || e.key === "Enter") {
+      this.setState({ loading: true });
       const newComment = await submitComment(this.state.comment);
       console.log(newComment);
       this.setState({
@@ -72,19 +75,20 @@ class SingleFeed extends Component {
           comment: "",
           elementId: this.props.feed._id,
         },
+        loading: false,
       });
     }
   };
 
   componentDidMount = async () => {
     const comments = await fetchCommentsById(this.props.feed._id);
-    this.setState({ comments: comments });
+    this.setState({ comments: comments, loading: false });
   };
 
   componentDidUpdate = async (prevProp, prevState) => {
     if (this.state.comments !== prevState.comments) {
       const comments = await fetchCommentsById(this.props.feed._id);
-      this.setState({ comments: comments });
+      this.setState({ comments: comments, loading: false });
     }
   };
 
@@ -166,6 +170,7 @@ class SingleFeed extends Component {
             </Row>
             {this.state.comments.length !== 0 && (
               <Row className="comments">
+                {" "}
                 <Accordion
                   defaultActiveKey="0"
                   style={{
@@ -185,7 +190,13 @@ class SingleFeed extends Component {
                         {this.state.comments.map((comment) => {
                           return (
                             <Card.Body>
-                              <SingleComment comment={comment} />
+                              {this.state.loading ? (
+                                <Spinner animation="border" role="status">
+                                  <span className="sr-only">Loading...</span>
+                                </Spinner>
+                              ) : (
+                                <SingleComment comment={comment} />
+                              )}
                             </Card.Body>
                           );
                         })}

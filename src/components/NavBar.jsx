@@ -141,7 +141,7 @@ const NavBar = (props) => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto"></Nav>
-              <Nav style={{ marginTop: "2vh" }}>
+              <Nav style={{ marginTop: "3vh" }}>
                 <Link to="/" className="nav-link">
                   {homeIcon}
                   <br></br>Start
@@ -226,7 +226,7 @@ const NavBar = (props) => {
                         style={{
                           fontWeight: "600",
                           textAlign: "center",
-                          height: "2vh",
+                          height: "3vh",
                           width: "25vh",
                           borderRadius: "100px",
                           fontSize: "12px",
