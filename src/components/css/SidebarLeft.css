@@ -156,7 +156,8 @@ svg {
   line-height: 16px;
   font-weight: 600;
 }
-#savedItems:hover {
+#savedItems:hover,
+#discover:hover {
   background-color: rgba(0, 0, 0, 0.08);
 }
 .app {
@@ -187,8 +188,6 @@ svg {
 .wrapper {
   border: 1px solid #dce6ff;
   border-radius: 10px;
-  background-color: white;
-  padding: 10px;
 }
 .accordHead {
   outline: none !important;
@@ -197,6 +196,7 @@ svg {
   font-size: 12px;
   line-height: 16px;
   background: white;
+  padding-left: 10px;
 }
 .bluetext {
   color: #0a66c2;
@@ -235,4 +235,8 @@ svg {
   color: rgba(0, 0, 0, 0.9);
   width: 100%;
   outline: none !important;
+}
+
+#discover:hover {
+  background-color: rgba(0, 0, 0, 0.08);
 }
