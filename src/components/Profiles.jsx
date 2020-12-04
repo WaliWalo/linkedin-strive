@@ -18,13 +18,20 @@ class Profiles extends React.Component {
         <ListGroupItem id="list-item">
           <Row className="mt-2">
             <Col xs={2} className="pl-1 pr-1 mt-2 mr-2" id="img-col">
-              <Card.Img
-                className="profile-img"
-                src={this.state.profile.image}
-                onClick={() =>
-                  this.props.history.push(`/profile/${this.state.profile._id}`)
-                }
-              />
+              {this.state.profile.image ? (
+                <Card.Img
+                  className="profile-img"
+                  src={this.state.profile.image}
+                  onClick={() =>
+                    this.props.history.push(
+                      `/profile/${this.state.profile._id}`
+                    )
+                  }
+                  alt="http://placehold.it/20x20"
+                />
+              ) : (
+                <Card.Img src="http://placehold.it/20x20" />
+              )}
             </Col>
             <Col xs={6} className=" pl-0" id="name-col">
               <Card.Title className="title">

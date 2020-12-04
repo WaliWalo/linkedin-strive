@@ -18,6 +18,7 @@ import {
   Image,
   Modal,
   Row,
+  Spinner,
 } from "react-bootstrap";
 import {
   createPost,
@@ -30,6 +31,7 @@ export default class PostModal extends Component {
     post: { text: "" },
     modified: "Post",
     filesSelected: null,
+    loading: false,
   };
 
   updateField = (e) => {
@@ -39,6 +41,7 @@ export default class PostModal extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+    this.setState({ loading: true });
     let submitMsg;
     let submitImgMsg;
     if (this.props.edit) {
@@ -50,7 +53,7 @@ export default class PostModal extends Component {
         );
         alert(submitImgMsg);
       }
-      this.setState({ post: { text: "" }, modified: "Post" });
+      this.setState({ post: { text: "" }, modified: "Post", loading: false });
     } else {
       submitMsg = await createPost(this.state.post);
       if (this.state.filesSelected !== null) {
@@ -58,12 +61,13 @@ export default class PostModal extends Component {
           submitMsg._id,
           this.state.filesSelected
         );
+        this.setState({ loading: false });
         alert(submitImgMsg);
       }
     }
 
     alert("Post Submitted");
-    this.setState({ post: { text: "" }, modified: "Post" });
+    this.setState({ post: { text: "" }, modified: "Post", loading: false });
     let hideModal = this.props.onHide;
     hideModal();
   };
@@ -93,103 +97,112 @@ export default class PostModal extends Component {
             )}
           </Modal.Header>
           <Modal.Body>
-            <Container>
-              <Row>
-                <Col style={{ flexGrow: "0", margin: "10px", padding: "0" }}>
-                  <Image src={this.props.profile.image} className="profImg" />
-                </Col>
-                <Col>
-                  {this.props.profile.name} &nbsp;
-                  {this.props.profile.surname}
-                  <Dropdown>
-                    <Dropdown.Toggle
-                      id="dropdown-basic"
-                      style={{
-                        width: "100px",
-                        color: "#56687A",
-                        backgroundColor: "transparent",
-                        borderColor: "#56687A",
-                        borderRadius: "100px",
-                        fontSize: "13px",
-                        height: "30px",
-                      }}
-                    >
-                      <FontAwesomeIcon
-                        icon={faGlobeAmericas}
-                        style={{ padding: "0", margin: "0px" }}
-                      />
-                      Anyone
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">
-                        Another action
-                      </Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">
-                        Something else
-                      </Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </Col>
-              </Row>
-              <Form className="txtArea" onSubmit={this.handleSubmit}>
+            {this.state.loading ? (
+              <Spinner animation="border" role="status">
+                <span className="sr-only">Loading...</span>
+              </Spinner>
+            ) : (
+              <Container>
                 <Row>
-                  <Form.Group controlId="exampleForm.ControlTextarea1">
-                    <Form.Control
-                      as="textarea"
-                      rows={3}
-                      placeholder="What do you wanna talk about?"
-                      className="txtAreaControl"
-                      required
-                      value={this.state.post.text}
-                      onChange={this.updateField}
-                    />
-                  </Form.Group>
-                </Row>
-                <Row>
-                  <Button className="hashBtn">Add Hashtag</Button>
-                  <p>Help the right people see your post</p>
-                </Row>
-                <Row className="modalIcons">
-                  <Col xs={1}>
-                    <FontAwesomeIcon icon={faPlus} style={{ color: "blue" }} />
+                  <Col style={{ flexGrow: "0", margin: "10px", padding: "0" }}>
+                    <Image src={this.props.profile.image} className="profImg" />
                   </Col>
-                  <Col xs={1}>
-                    <div class="image-upload">
-                      <label for="file-input">
-                        <FontAwesomeIcon icon={faImage} />
-                      </label>
-
-                      <input
-                        onChange={(e) => this.handleChange(e.target.files)}
-                        id="file-input"
-                        type="file"
+                  <Col>
+                    {this.props.profile.name} &nbsp;
+                    {this.props.profile.surname}
+                    <Dropdown>
+                      <Dropdown.Toggle
+                        id="dropdown-basic"
+                        style={{
+                          width: "100px",
+                          color: "#56687A",
+                          backgroundColor: "transparent",
+                          borderColor: "#56687A",
+                          borderRadius: "100px",
+                          fontSize: "13px",
+                          height: "30px",
+                        }}
+                      >
+                        <FontAwesomeIcon
+                          icon={faGlobeAmericas}
+                          style={{ padding: "0", margin: "0px" }}
+                        />
+                        Anyone
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">
+                          Another action
+                        </Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">
+                          Something else
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </Col>
+                </Row>
+                <Form className="txtArea" onSubmit={this.handleSubmit}>
+                  <Row>
+                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                      <Form.Control
+                        as="textarea"
+                        rows={3}
+                        placeholder="What do you wanna talk about?"
+                        className="txtAreaControl"
+                        required
+                        value={this.state.post.text}
+                        onChange={this.updateField}
                       />
-                    </div>
-                    {/* <Form.File.Input
+                    </Form.Group>
+                  </Row>
+                  <Row>
+                    <Button className="hashBtn">Add Hashtag</Button>
+                    <p>Help the right people see your post</p>
+                  </Row>
+                  <Row className="modalIcons">
+                    <Col xs={1}>
+                      <FontAwesomeIcon
+                        icon={faPlus}
+                        style={{ color: "blue" }}
+                      />
+                    </Col>
+                    <Col xs={1}>
+                      <div class="image-upload">
+                        <label for="file-input">
+                          <FontAwesomeIcon icon={faImage} />
+                        </label>
+
+                        <input
+                          onChange={(e) => this.handleChange(e.target.files)}
+                          id="file-input"
+                          type="file"
+                        />
+                      </div>
+                      {/* <Form.File.Input
                       className="fileLocator"
                       onChange={(e) => this.handleChange(e.target.files)}
                     /> */}
-                  </Col>
-                  <Col xs={1}>
-                    <FontAwesomeIcon icon={faVideo} />
-                  </Col>
-                  <Col xs={1}>
-                    <FontAwesomeIcon icon={faFile} />
-                  </Col>
-                  <Col xs={6}></Col>
-                  <Col xs={2}>
-                    {this.state.post.text === "" ? (
-                      <Button disabled type="submit">
-                        {this.state.modified}
-                      </Button>
-                    ) : (
-                      <Button type="submit">{this.state.modified}</Button>
-                    )}
-                  </Col>
-                </Row>
-              </Form>
-            </Container>
+                    </Col>
+                    <Col xs={1}>
+                      <FontAwesomeIcon icon={faVideo} />
+                    </Col>
+                    <Col xs={1}>
+                      <FontAwesomeIcon icon={faFile} />
+                    </Col>
+                    <Col xs={6}></Col>
+                    <Col xs={2}>
+                      {this.state.post.text === "" ? (
+                        <Button disabled type="submit">
+                          {this.state.modified}
+                        </Button>
+                      ) : (
+                        <Button type="submit">{this.state.modified}</Button>
+                      )}
+                    </Col>
+                  </Row>
+                </Form>
+              </Container>
+            )}
           </Modal.Body>
           <Modal.Footer className="modalFooter">
             <Col>

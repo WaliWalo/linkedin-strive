@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component } from "react";
-import { Button, Form, Modal, Row } from "react-bootstrap";
+import { Button, Form, Modal, Row, Spinner } from "react-bootstrap";
 import {
   createExperience,
   submitExperienceImage,
@@ -20,6 +20,7 @@ export default class MyModal extends Component {
       area: "",
     },
     filesSelected: null,
+    loading: false,
   };
 
   updateField = (e) => {
@@ -32,6 +33,7 @@ export default class MyModal extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+    this.setState({ loading: true });
     let submitMessage;
     let submitImgMsg;
     if (this.props.edit !== true) {
@@ -73,6 +75,7 @@ export default class MyModal extends Component {
         description: "",
         area: "",
       },
+      loading: false,
     });
     let hideModal = this.props.onHide;
     hideModal();
@@ -108,77 +111,83 @@ export default class MyModal extends Component {
           )}
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Group>
-              <Row>
-                <Form.Label>Role</Form.Label>
-                <Form.Control
-                  type="text"
-                  required
-                  placeholder="Enter Role"
-                  id="role"
-                  value={this.state.experience.role}
-                  onChange={this.updateField}
-                />
+          {this.state.loading ? (
+            <Spinner animation="border" role="status">
+              <span className="sr-only">Loading...</span>
+            </Spinner>
+          ) : (
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Group>
+                <Row>
+                  <Form.Label>Role</Form.Label>
+                  <Form.Control
+                    type="text"
+                    required
+                    placeholder="Enter Role"
+                    id="role"
+                    value={this.state.experience.role}
+                    onChange={this.updateField}
+                  />
 
-                <Form.Label>Company</Form.Label>
-                <Form.Control
-                  type="text"
-                  required
-                  placeholder="Company"
-                  id="company"
-                  value={this.state.experience.company}
-                  onChange={this.updateField}
-                />
-              </Row>
-              <Row>
-                <Form.Label>Start Date</Form.Label>
-                <Form.Control
-                  type="date"
-                  required
-                  id="startDate"
-                  value={this.state.experience.startDate}
-                  onChange={this.updateField}
-                />
+                  <Form.Label>Company</Form.Label>
+                  <Form.Control
+                    type="text"
+                    required
+                    placeholder="Company"
+                    id="company"
+                    value={this.state.experience.company}
+                    onChange={this.updateField}
+                  />
+                </Row>
+                <Row>
+                  <Form.Label>Start Date</Form.Label>
+                  <Form.Control
+                    type="date"
+                    required
+                    id="startDate"
+                    value={this.state.experience.startDate}
+                    onChange={this.updateField}
+                  />
 
-                <Form.Label>End Date</Form.Label>
-                <Form.Control
-                  type="date"
-                  id="endDate"
-                  value={this.state.experience.endDate}
-                  onChange={this.updateField}
+                  <Form.Label>End Date</Form.Label>
+                  <Form.Control
+                    type="date"
+                    id="endDate"
+                    value={this.state.experience.endDate}
+                    onChange={this.updateField}
+                  />
+                </Row>
+                <Row>
+                  <Form.Label>Description</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    required
+                    rows={3}
+                    id="description"
+                    value={this.state.experience.description}
+                    onChange={this.updateField}
+                  />
+                </Row>
+                <Row>
+                  <Form.Label>Location</Form.Label>
+                  <Form.Control
+                    type="text"
+                    rows={3}
+                    id="area"
+                    value={this.state.experience.area}
+                    onChange={this.updateField}
+                  />
+                </Row>
+                <Form.File.Input
+                  onChange={(e) => this.handleChange(e.target.files)}
                 />
-              </Row>
-              <Row>
-                <Form.Label>Description</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  required
-                  rows={3}
-                  id="description"
-                  value={this.state.experience.description}
-                  onChange={this.updateField}
-                />
-              </Row>
-              <Row>
-                <Form.Label>Location</Form.Label>
-                <Form.Control
-                  type="text"
-                  rows={3}
-                  id="area"
-                  value={this.state.experience.area}
-                  onChange={this.updateField}
-                />
-              </Row>
-              <Form.File.Input
-                onChange={(e) => this.handleChange(e.target.files)}
-              />
-            </Form.Group>
+              </Form.Group>
 
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+          )}
         </Modal.Body>
       </Modal>
     );

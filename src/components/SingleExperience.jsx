@@ -48,17 +48,21 @@ export default class SingleExperience extends Component {
                   <Row>{this.props.experience.area}</Row>
                 </Col>
                 <Col xs={1}>
-                  <FontAwesomeIcon
-                    className="yeet"
-                    onClick={this.handleOnClickEdit}
-                    icon={faPen}
-                  />
-                  &nbsp; &nbsp;
-                  <FontAwesomeIcon
-                    className="yeet"
-                    onClick={this.handleOnClick}
-                    icon={faDumpsterFire}
-                  />
+                  {this.props.profile._id === this.props.myProfile._id && (
+                    <>
+                      <FontAwesomeIcon
+                        className="yeet"
+                        onClick={this.handleOnClickEdit}
+                        icon={faPen}
+                      />
+                      &nbsp; &nbsp;
+                      <FontAwesomeIcon
+                        className="yeet"
+                        onClick={this.handleOnClick}
+                        icon={faDumpsterFire}
+                      />
+                    </>
+                  )}
                 </Col>
               </Row>
             </Container>

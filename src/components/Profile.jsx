@@ -35,6 +35,11 @@ class Profile extends Component {
       const profile = await fetchProfileById(this.props.match.params.id);
       this.setState({ profile });
     }
+    //FOR PROFILE IMAGE ON UPDATE
+    if (this.props.profile !== prevProp.profile) {
+      const profile = await fetchProfileById(this.state.profileId);
+      this.setState({ profile });
+    }
   };
 
   render() {
@@ -45,12 +50,21 @@ class Profile extends Component {
           <Container>
             <Row>
               <Col xs={9}>
-                <ProfileSection profile={this.state.profile} />
-                <About profile={this.state.profile} />
+                <ProfileSection
+                  profile={this.state.profile}
+                  myProfile={this.props.profile}
+                />
+                <About
+                  profile={this.state.profile}
+                  myProfile={this.props.profile}
+                />
                 <Featured />
                 <Dashboard />
                 <Activity />
-                <Experience profile={this.state.profile} />
+                <Experience
+                  profile={this.state.profile}
+                  myProfile={this.props.profile}
+                />
                 <Skills />
                 <Interests />
               </Col>
